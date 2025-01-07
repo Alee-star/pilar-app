@@ -11,12 +11,9 @@ const Navbar = () => {
         </div>
       </div>
       <Button
-        label={
-          <span className="flex items-center rounded-md text-sm px-3 py-1.5">
-            Show all assets
-          </span>
-        }
-        className="text-gray-900 bg-white border border-gary-300 hover:bg-gray-100 flex h-min items-center justify-center p-0.5 text-center font-medium rounded-lg"
+        label="Show all assets"
+        styleName="flex items-center rounded-md text-sm px-3 py-1.5"
+        className="text-gray-900 border border-gary-300 hover:bg-gray-100 flex h-min items-center justify-center p-0.5 text-center font-medium rounded-lg"
         type="button"
       />
     </div>
