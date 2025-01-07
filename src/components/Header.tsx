@@ -12,7 +12,7 @@ const Header = () => (
                 <img
                   className="!rounded-full rounded w-10 h-10"
                   src="assets/logo-right.png"
-                  alt="right-logo"
+                  alt="avatar"
                 />
               </div>
             </div>
