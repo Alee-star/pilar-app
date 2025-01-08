@@ -1,5 +1,4 @@
 import Button from "./Button";
-import { ButtonVarient } from "../types/ButtonTypes";
 
 const Navbar = () => {
   return (
@@ -11,7 +10,7 @@ const Navbar = () => {
           </select>
         </div>
       </div>
-      <Button label="Show all assets" varient={ButtonVarient.white} />
+      <Button label="Show all assets" />
     </div>
   );
 };

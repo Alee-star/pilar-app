@@ -1,8 +1,8 @@
 import React from "react";
 
 export enum ButtonVarient {
-  black = "black",
-  white = "white",
+  primary = "primary",
+  secondary = "secondary",
   disabled = "disabled",
   enabled = "enabled",
 }
@@ -10,11 +10,9 @@ export enum ButtonVarient {
 export interface ButtonProps {
   label: React.ReactNode;
   onClick?: () => void;
-  className?: string;
-  style?: string;
   varient?: ButtonVarient;
   isDisabled?: boolean;
   hasSvg?: boolean;
-  svgSrc?: string;
-  svgAlt?: string;
+  image?: string;
+  imageAlt?: string;
 }
