@@ -1,10 +1,10 @@
 import React from "react";
 
 export enum ButtonVarient {
-  primary = "primary",
-  secondary = "secondary",
-  disabled = "disabled",
-  enabled = "enabled",
+  PRIMARY = "primary",
+  SECONDARY = "secondary",
+  DISABLED = "disabled",
+  ENABLED = "enabled",
 }
 
 export interface ButtonProps {
