@@ -1,5 +1,5 @@
 import React from "react";
-import { SearchProps, SearchVarient } from "../types/SearchTypes";
+import { SearchProps, SearchVarient } from "../types/search";
 
 const Searchbar: React.FC<SearchProps> = ({
   placeholder,
@@ -13,6 +13,12 @@ const Searchbar: React.FC<SearchProps> = ({
       ? "block w-full rounded-lg pl-10 p-2.5 text-gray-900 text-sm"
       : "block w-full rounded-lg pl-10 p-2.5 text-gray-900 text-sm bg-white outline-none";
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (onChange) {
+      onChange(e);
+    }
+  };
+
   return (
     <div className="flex">
       <div className="relative w-full">
@@ -22,12 +28,7 @@ const Searchbar: React.FC<SearchProps> = ({
         <input
           className={inputClass}
           placeholder={placeholder}
-          onChange={(e) => {
-            console.log("Search:", e.target.value);
-            if (onChange) {
-              onChange(e);
-            }
-          }}
+          onChange={handleChange}
         />
       </div>
     </div>
