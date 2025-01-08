@@ -1,4 +1,5 @@
 import Button from "./Button";
+import { ButtonVarient } from "../types/ButtonTypes";
 
 const Navbar = () => {
   return (
@@ -10,12 +11,7 @@ const Navbar = () => {
           </select>
         </div>
       </div>
-      <Button
-        label="Show all assets"
-        styleName="flex items-center rounded-md text-sm px-3 py-1.5"
-        className="text-gray-900 border border-gary-300 hover:bg-gray-100 flex h-min items-center justify-center p-0.5 text-center font-medium rounded-lg"
-        type="button"
-      />
+      <Button label="Show all assets" varient={ButtonVarient.white} />
     </div>
   );
 };

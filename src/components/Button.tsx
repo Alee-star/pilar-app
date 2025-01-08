@@ -1,32 +1,59 @@
 import React from "react";
-
-interface ButtonProps {
-  label: React.ReactNode;
-  onClick?: () => void;
-  className?: string;
-  styleName?: string;
-  type: "button" | "submit";
-  backgroundColor?: string;
-}
+import clsx from "clsx";
+import { ButtonProps, ButtonVarient } from "../types/ButtonTypes";
 
 const Button: React.FC<ButtonProps> = ({
   label,
   onClick,
-  className = "",
-  styleName = "",
-  type = "button",
-  backgroundColor = "white",
+  style,
+  varient,
+  isDisabled,
+  hasSvg,
+  svgSrc,
+  svgAlt,
 }) => {
-  const buttonStyle = { backgroundColor };
-
   return (
     <button
-      className={className}
+      className={clsx(
+        style,
+        "flex h-min items-center justify-center p-0.5 text-center font-medium rounded-lg",
+        {
+          "text-gray-900 border border-gray-300 hover:bg-gray-100":
+            varient === ButtonVarient.white,
+          "border-transparent text-white bg-gray-800 hover:bg-gray-900":
+            varient === ButtonVarient.black,
+          "bg-white opacity-50 cursor-not-allowed border border-gray-900":
+            varient === ButtonVarient.disabled,
+          "text-gray-900 border border-gray-900":
+            varient === ButtonVarient.enabled,
+        }
+      )}
       onClick={onClick}
-      type={type}
-      style={buttonStyle}
+      disabled={isDisabled}
     >
-      <span className={styleName}>{label}</span>
+      {" "}
+      {!hasSvg ? (
+        <span
+          className={clsx(
+            style,
+            "flex items-center rounded-md text-sm px-3 py-1.5 "
+          )}
+        >
+          {label}
+        </span>
+      ) : (
+        <span
+          className={clsx(
+            style,
+            "flex items-center rounded-md text-sm px-4 py-2 "
+          )}
+        >
+          <img src={svgSrc} alt={svgAlt} />
+          <span className={clsx(style, "pl-3 text-xs sm:text-sm")}>
+            {label}
+          </span>
+        </span>
+      )}
     </button>
   );
 };
