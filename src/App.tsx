@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import Searchbar from "./components/Searchbar";
 import "./index.css";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       <div className="h-screen overflow-hidden flex flex-col">
         <Header />
+        <Searchbar placeholder="Search by User" image="assets/search.svg" />
       </div>
     </>
   );
