@@ -24,16 +24,18 @@ const Button: React.FC<ButtonProps> = ({
   image,
   imageAlt,
 }) => {
-  const buttonClasses = `flex h-min items-center justify-center p-0.5 text-center font-medium rounded-lg ${getButtonClasses(
+  const buttonClass = `flex h-min items-center justify-center p-0.5 text-center font-medium rounded-lg ${getButtonClasses(
     varient
   )}`;
-  const labelClasses = image ? "pl-3 text-xs sm:text-sm" : "text-xs sm:text-sm";
+  const buttonTextClass = image
+    ? "pl-3 text-xs sm:text-sm"
+    : "text-xs sm:text-sm";
 
   return (
-    <button className={buttonClasses} onClick={onClick} disabled={isDisabled}>
+    <button className={buttonClass} onClick={onClick} disabled={isDisabled}>
       <span className="flex items-center rounded-md text-sm px-4 py-2 pl-3">
         {image && <img src={image} alt={imageAlt} />}
-        <span className={labelClasses}>{label}</span>
+        <span className={buttonTextClass}>{label}</span>
       </span>
     </button>
   );
