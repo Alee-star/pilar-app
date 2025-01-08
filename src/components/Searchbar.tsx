@@ -6,7 +6,7 @@ const Searchbar: React.FC<SearchProps> = ({
   placeholder,
   image,
   imageAlt,
-  varient = SearchVarient.primary,
+  varient = SearchVarient.PRIMARY,
   onChange,
 }) => {
   return (
@@ -20,8 +20,8 @@ const Searchbar: React.FC<SearchProps> = ({
             "block w-full rounded-lg pl-10 p-2.5 text-gray-900 text-sm",
             {
               "border bg-gray-50 border-gray-300":
-                varient === SearchVarient.primary,
-              "bg-white outline-none": varient === SearchVarient.secondary,
+                varient === SearchVarient.PRIMARY,
+              "bg-white outline-none": varient === SearchVarient.SECONDARY,
             }
           )}
           placeholder={placeholder}

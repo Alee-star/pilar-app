@@ -1,6 +1,6 @@
 export enum SearchVarient {
-  primary = "primary",
-  secondary = "secondary",
+  PRIMARY = "primary",
+  SECONDARY = "secondary",
 }
 
 export interface SearchProps {
