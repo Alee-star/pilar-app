@@ -1,6 +1,6 @@
-import DatePicker from "./components/DatePicker";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
+import Banner from "./pages/banner";
 import "./index.css";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <div className="h-screen overflow-hidden flex flex-col">
         <Header />
         <Navbar />
-        <DatePicker placeholder="mm/dd/yyyy" />
+        <Banner />
       </div>
     </>
   );
