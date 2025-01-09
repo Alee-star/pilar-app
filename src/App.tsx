@@ -14,7 +14,7 @@ function App() {
         <div className="flex overflow-hidden w-full gap-2">
           <Searchbar placeholder="Search by User" onChange={() => {}} />
           <DatePicker placeholder="mm/dd/yyyy" onChange={() => {}} />
-          <ApartmentSelector label="Apartment" />
+          <ApartmentSelector label="Apartment" onChange={() => {}} />
         </div>
       </div>
     </>

@@ -1,9 +1,13 @@
 import { useState } from "react";
-import { SelectorProps } from "../types/selector";
 import Searchbar from "./Searchbar";
 import { SearchVarient } from "../types/search";
 
-const ApartmentSelector: React.FC<SelectorProps> = ({ label }) => {
+export interface SelectorProps {
+  label?: string;
+  onChange: (value: string) => void;
+}
+
+const ApartmentSelector: React.FC<SelectorProps> = ({ label, onChange }) => {
   const [isClicked, setIsClicked] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -12,6 +16,15 @@ const ApartmentSelector: React.FC<SelectorProps> = ({ label }) => {
   const filteredApartments = apartments.filter((apartment) =>
     apartment.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const handleSelect = (apartment: string) => {
+    setSearchTerm(apartment);
+    setIsClicked(false);
+
+    if (onChange) {
+      onChange(apartment);
+    }
+  };
 
   return (
     <div className="text-gray-700 bg-gray-50 border border-gray-200 px-3 py-2.5 flex items-center rounded-lg">
@@ -46,10 +59,7 @@ const ApartmentSelector: React.FC<SelectorProps> = ({ label }) => {
                       <div
                         className="w-full text-start items-center hover:bg-gray-100"
                         key={index}
-                        onClick={() => {
-                          setSearchTerm(apartment);
-                          setIsClicked(false);
-                        }}
+                        onClick={() => handleSelect(apartment)}
                       >
                         <div className="rounded-lg w-full py-1 px-3 flex justify-between">
                           <p className="text-base">{apartment}</p>
