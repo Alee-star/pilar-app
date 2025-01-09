@@ -8,17 +8,17 @@ export interface SelectorProps {
 }
 
 const ApartmentSelector: React.FC<SelectorProps> = ({ label, onChange }) => {
-  const [isClicked, setIsClicked] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+  const [searchString, setSearchString] = useState<string>("");
 
   const apartments = ["All apartments", "Test apartment", "Test 2"];
 
   const filteredApartments = apartments.filter((apartment) =>
-    apartment.toLowerCase().includes(searchTerm.toLowerCase())
+    apartment.toLowerCase().includes(searchString.toLowerCase())
   );
 
   const handleSelect = (apartment: string) => {
-    setSearchTerm(apartment);
+    setSearchString(apartment);
     setIsClicked(false);
 
     if (onChange) {
@@ -49,7 +49,7 @@ const ApartmentSelector: React.FC<SelectorProps> = ({ label, onChange }) => {
                 <div className="flex flex-col items-start pl-3 pr-16 pb-4">
                   <div className="border-b-2">
                     <Searchbar
-                      onChange={(e) => setSearchTerm(e.target.value)}
+                      onChange={(e) => setSearchString(e.target.value)}
                       placeholder="Search"
                       varient={SearchVarient.SECONDARY}
                     />
