@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-import Banner from "./pages/banner";
+import Searchbar from "./components/Searchbar";
 import "./index.css";
 
 function App() {
@@ -9,7 +9,9 @@ function App() {
       <div className="h-screen overflow-hidden flex flex-col">
         <Header />
         <Navbar />
-        <Banner />
+        <div className="flex overflow-hidden w-full ">
+          <Searchbar placeholder="Search by User" onChange={() => {}} />
+        </div>
       </div>
     </>
   );
