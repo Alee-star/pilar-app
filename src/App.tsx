@@ -12,7 +12,7 @@ function App() {
         <Navbar />
         <div className="flex overflow-hidden w-full">
           <Searchbar placeholder="Search by User" onChange={() => {}} />
-          <DatePicker placeholder="dd/mm/yyyy" />
+          <DatePicker placeholder="mm/dd/yyyy" onChange={() => {}} />
         </div>
       </div>
     </>

@@ -1,5 +1,9 @@
 import React from "react";
-import { DatePickerProps } from "../types/DatePickerProps";
+
+export interface DatePickerProps {
+  placeholder?: string;
+  onChange: (date: string) => void;
+}
 
 const DatePicker: React.FC<DatePickerProps> = ({ placeholder, onChange }) => {
   return (
