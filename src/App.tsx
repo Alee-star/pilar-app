@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import DatePicker from "./components/DatePicker";
 import "./index.css";
+import Searchbar from "./components/Searchbar";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Header />
         <Navbar />
         <div className="flex overflow-hidden w-full">
+          <Searchbar placeholder="Search by User" onChange={() => {}} />
           <DatePicker placeholder="dd/mm/yyyy" />
         </div>
       </div>
