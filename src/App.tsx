@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Searchbar from "./components/Searchbar";
 import DatePicker from "./components/DatePicker";
 import DropDown from "./components/DropDown";
+import FileUploader from "./components/FileUploader";
 import "./index.css";
 
 function App() {
@@ -12,11 +13,18 @@ function App() {
       <div className="h-screen overflow-hidden flex flex-col">
         <Header />
         <Navbar />
-        <div className="flex overflow-hidden w-full gap-2">
+        <div className="ml-3 flex overflow-hidden w-full gap-2">
           <Searchbar placeholder="Search by User" onChange={() => {}} />
           <DatePicker placeholder="mm/dd/yyyy" onChange={() => {}} />
           <DropDown onChange={() => {}} />
           <ApartmentSelector label="Apartment" onChange={() => {}} />
+        </div>
+        <div className="flex w-full mt-10 ml-3">
+          <FileUploader
+            requirement="Requirement: Pdf (max. 5MB)"
+            label="Upload rental contract*"
+            spanLabel="This field is mandatory"
+          />
         </div>
       </div>
     </>
