@@ -1,23 +1,15 @@
-import ApartmentSelector from "./components/ApartmentSelector";
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
-import Searchbar from "./components/Searchbar";
-import DatePicker from "./components/DatePicker";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import TenantsPage from "./pages/TenantsPage";
 import "./index.css";
 
 function App() {
   return (
-    <>
-      <div className="h-screen overflow-hidden flex flex-col">
-        <Header />
-        <Navbar />
-        <div className="flex overflow-hidden w-full gap-2">
-          <Searchbar placeholder="Search by User" onChange={() => {}} />
-          <DatePicker placeholder="mm/dd/yyyy" onChange={() => {}} />
-          <ApartmentSelector label="Apartment" onChange={() => {}} />
-        </div>
-      </div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<TenantsPage />} />
+        <Route path="/tenants" element={<TenantsPage />} />
+      </Routes>
+    </Router>
   );
 }
 
