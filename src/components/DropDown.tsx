@@ -14,10 +14,10 @@ const DropDown: React.FC<DropDownProps> = ({ value, varient, onChange }) => {
           value={value}
           onChange={(e) => onChange(e.target.value)}
         >
-          <option value={value}>Select Tower</option>
-          <option value={value}>Sub-asset-1</option>
-          <option value={value}>Sub-asset-2</option>
-          <option value={value}>Sub-asset-3</option>
+          <option value="">Select Tower</option>
+          <option value="tower1">Sub-asset-1</option>
+          <option value="tower2">Sub-asset-2</option>
+          <option value="tower3">Sub-asset-3</option>
         </select>
       </div>
     </div>
