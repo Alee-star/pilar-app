@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Select Tower",
+    "value": ""
+  },
+  {
+    "label": "Sub-asset-1",
+    "value": "tower1"
+  },
+  {
+    "label": "Sub-asset-2",
+    "value": "tower2"
+  },
+  {
+    "label": "Sub-asset-3",
+    "value": "tower3"
+  }
+]

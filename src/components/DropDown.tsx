@@ -1,10 +1,23 @@
-import { DropDownProps, DropDownVarient } from "../types/DropDown";
+import { useEffect, useState } from "react";
+import {
+  DropDownProps,
+  DropDownVarient,
+  DropDownOption,
+} from "../types/DropDown";
 
 const DropDown: React.FC<DropDownProps> = ({ value, varient, onChange }) => {
+  const [options, setOptions] = useState<DropDownOption[]>([]);
   const DropDownClass =
     varient === DropDownVarient.SECONDARY
       ? "width-[500px] opacity-50 cursor-not-allowed"
       : "";
+
+  useEffect(() => {
+    fetch("/assets/towers.json")
+      .then((response) => response.json())
+      .then((data) => setOptions(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
 
   return (
     <div>
@@ -14,10 +27,11 @@ const DropDown: React.FC<DropDownProps> = ({ value, varient, onChange }) => {
           value={value}
           onChange={(e) => onChange(e.target.value)}
         >
-          <option value="">Select Tower</option>
-          <option value="tower1">Sub-asset-1</option>
-          <option value="tower2">Sub-asset-2</option>
-          <option value="tower3">Sub-asset-3</option>
+          {options.map((option: DropDownOption, index) => (
+            <option key={index} value={option.value}>
+              {option.label}
+            </option>
+          ))}
         </select>
       </div>
     </div>
