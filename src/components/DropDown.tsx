@@ -20,23 +20,21 @@ const DropDown: React.FC<DropDownProps> = ({ value, varient, onChange }) => {
   }, []);
 
   return (
-    <div>
-      <div className="relative w-full">
-        <select
-          className={`block w-full border bg-gray-50 border-gray-300 text-gray-900 rounded-lg p-2.5 text-sm rounded-tr-0 rounded-br-0  ${DropDownClass}`}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-        >
-          <option value="" selected>
-            Select Tower
+    <div className="relative w-fit">
+      <select
+        className={`block w-full border bg-gray-50 border-gray-300 text-gray-900 rounded-lg p-2.5 text-sm rounded-tr-0 rounded-br-0  ${DropDownClass}`}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      >
+        <option value="" selected>
+          Select Tower
+        </option>
+        {options.map((option: DropDownOption, index) => (
+          <option key={index} value={option.value}>
+            {option.label}
           </option>
-          {options.map((option: DropDownOption, index) => (
-            <option key={index} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </div>
+        ))}
+      </select>
     </div>
   );
 };
