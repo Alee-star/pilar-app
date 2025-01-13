@@ -1,9 +1,5 @@
 [
   {
-    "label": "Select Tower",
-    "value": ""
-  },
-  {
     "label": "Sub-asset-1",
     "value": "tower1"
   },
