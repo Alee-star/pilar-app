@@ -24,7 +24,7 @@ const Button: React.FC<ButtonProps> = ({
   image,
   imageAlt,
 }) => {
-  const buttonClass = `flex h-min items-center justify-center p-0.5 text-center font-medium rounded-lg ${getButtonClasses(
+  const buttonClass = `flex h-min items-center justify-center p-0.5 text-center font-medium rounded-lg bg-white ${getButtonClasses(
     varient
   )}`;
   const buttonTextClass = image
@@ -33,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button className={buttonClass} onClick={onClick} disabled={isDisabled}>
-      <span className="flex items-center rounded-md text-sm px-4 py-2 pl-3">
+      <span className="flex items-center rounded-md text-sm px-3 py-1.5 ">
         {image && <img src={image} alt={imageAlt} />}
         <span className={buttonTextClass}>{label}</span>
       </span>
