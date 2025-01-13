@@ -7,7 +7,7 @@ const DropDown: React.FC<DropDownProps> = ({ value, varient, onChange }) => {
       : "";
 
   return (
-    <div className="flex">
+    <div>
       <div className="relative w-full">
         <select
           className={`block w-full border bg-gray-50 border-gray-300 text-gray-900 rounded-lg p-2.5 text-sm rounded-tr-0 rounded-br-0  ${DropDownClass}`}
