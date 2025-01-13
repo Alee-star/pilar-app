@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import TenantsPage from "./pages/TenantsPage";
+import Tenants from "./pages/Tenants";
 import "./index.css";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<TenantsPage />} />
-        <Route path="/tenants" element={<TenantsPage />} />
+        <Route path="/" element={<Tenants />} />
+        <Route path="/tenants" element={<Tenants />} />
       </Routes>
     </Router>
   );

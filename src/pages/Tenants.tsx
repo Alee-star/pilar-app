@@ -6,7 +6,7 @@ import Searchbar from "../components/Searchbar";
 import Sidebar from "../components/Sidebar";
 import { useState } from "react";
 
-const TenantsPage = () => {
+const Tenants = () => {
   const [selectedView, setSelectedView] = useState("");
 
   return (
@@ -18,7 +18,7 @@ const TenantsPage = () => {
           <Sidebar setSelectedView={setSelectedView} />
           <main className="w-full overflow-y-auto p-4 bg-white">
             {selectedView === "Tenants" ? (
-              <div className="flex overflow-hidden w-full gap-3">
+              <div className="flex overflow-hidden w-full gap-3 mb-6">
                 <Searchbar placeholder="Search by User" onChange={() => {}} />
                 <DatePicker placeholder="mm/dd/yyyy" onChange={() => {}} />
                 <ApartmentSelector label="Apartment" onChange={() => {}} />
@@ -33,4 +33,4 @@ const TenantsPage = () => {
   );
 };
 
-export default TenantsPage;
+export default Tenants;
