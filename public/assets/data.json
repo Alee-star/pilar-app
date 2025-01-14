@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Nivya Mathew",
+    "apartment": "1w",
+    "tower": "Change= ZO Test",
+    "rent": 100,
+    "moveInDate": "",
+    "lastSignedIn": "",
+    "actions": ["View Detail", "Re-invite", "Archive"],
+    "hasImage": true
+  },
+  {
+    "name": "Anan Nasreen",
+    "apartment": "Nenya - apartment",
+    "tower": "Nenya",
+    "rent": 2000,
+    "moveInDate": "",
+    "lastSignedIn": "13/12/2024 - 01:43",
+    "actions": ["View Detail", "Re-invite", "Archive"],
+    "hasImage": true
+  },
+  {
+    "name": "Abraham SBL",
+    "apartment": "AB1",
+    "tower": "SBL littlelake",
+    "rent": 654,
+    "moveInDate": "",
+    "lastSignedIn": "04/01/2025 - 11:35",
+    "actions": ["View Detail", "Re-invite", "Archive"],
+    "hasImage": true
+  }
+]
