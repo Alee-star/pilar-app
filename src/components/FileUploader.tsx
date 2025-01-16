@@ -18,11 +18,11 @@ const FileUploader: React.FC<FileUploaderProps> = ({
   const handleDocChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setDocument(reader.result as string);
+      const fileReader = new FileReader();
+      fileReader.onloadend = () => {
+        setDocument(fileReader.result as string);
       };
-      reader.readAsDataURL(file);
+      fileReader.readAsDataURL(file);
     }
   };
 
