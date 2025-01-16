@@ -1,0 +1,68 @@
+{
+  "Unit details": [
+    {
+      "label": "Unit Type",
+      "value": "Apartment"
+    },
+    {
+      "label": "Sub asset",
+      "value": "Nenya"
+    },
+    {
+      "label": "Apartment unit",
+      "value": "Nenya-apartment-Nenya"
+    }
+  ],
+  "Tenant details": [
+    {
+      "label": "Tenant Name",
+      "value": "Nivya Mathew"
+    },
+    {
+      "label": "Gender",
+      "value": "FEMALE"
+    },
+    {
+      "label": "DOB",
+      "value": "2025-01-01"
+    },
+    {
+      "label": "Email",
+      "value": "nivya.mathew+inviteemail1@vonnue.com"
+    },
+    {
+      "label": "Phone",
+      "value": "+918281933492"
+    },
+    {
+      "label": "Status",
+      "value": "Moved In"
+    }
+  ],
+  "Onboarding Information": [
+    {
+      "label": "Move in date",
+      "value": ""
+    },
+    {
+      "label": "Elevator Slots",
+      "value": ""
+    }
+  ],
+  "Contract": [
+    {
+      "label": "Rental Contract",
+      "value": "rental contract"
+    },
+    {
+      "label": "Monthly rent",
+      "value": "654"
+    }
+  ],
+  "Other Documents": [
+    {
+      "label": "Documents",
+      "value": ""
+    }
+  ]
+}
