@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 
 interface FileUploaderProps {
-  label?: string;
-  accept?: string;
-  spanLabel?: string;
+  buttonLabel?: string;
+  acceptedFormats?: string;
+  helperText?: string;
   requirement: string;
 }
 
 const FileUploader: React.FC<FileUploaderProps> = ({
-  label,
-  accept,
+  buttonLabel,
+  acceptedFormats,
   requirement,
-  spanLabel,
+  helperText,
 }) => {
   const [document, setDocument] = useState<string | null>(null);
 
@@ -29,13 +29,13 @@ const FileUploader: React.FC<FileUploaderProps> = ({
   return (
     <div className="flex flex-col gap-2 w-full">
       <label className="font-medium text-sm leading-5 text-gray-900">
-        {label}
-        <span className="text-gray-500 ml-2 text-xs">{spanLabel}</span>
+        {buttonLabel}
+        <span className="text-gray-500 ml-2 text-xs">{helperText}</span>
       </label>
       <div className="w-full relative">
         <input
           type="file"
-          accept={accept}
+          accept={acceptedFormats}
           onChange={handleDocChange}
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
         />

@@ -22,8 +22,9 @@ function App() {
         <div className="flex w-full mt-10 ml-3">
           <FileUploader
             requirement="Requirement: Pdf (max. 5MB)"
-            label="Upload rental contract*"
-            spanLabel="This field is mandatory"
+            buttonLabel="Upload rental contract*"
+            helperText="This field is mandatory"
+            acceptedFormats=".pdf"
           />
         </div>
       </div>
