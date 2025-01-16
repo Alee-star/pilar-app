@@ -11,6 +11,6 @@ export interface User {
 
 export interface TableProps {
   headers: string[];
-  hasImage?: boolean;
+  hasIcon?: boolean;
   hasButtons?: boolean;
 }

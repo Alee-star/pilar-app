@@ -1,5 +1,6 @@
 [
   {
+    "id": "1",
     "name": "Nivya Mathew",
     "apartment": "1w",
     "tower": "Change= ZO Test",
@@ -10,6 +11,7 @@
     "hasMovedIn": true
   },
   {
+    "id": "2",
     "name": "Anan Nasreen",
     "apartment": "Nenya - apartment",
     "tower": "Nenya",
@@ -20,6 +22,7 @@
     "hasMovedIn": true
   },
   {
+    "id": "3",
     "name": "Abraham SBL",
     "apartment": "AB1",
     "tower": "SBL littlelake",
