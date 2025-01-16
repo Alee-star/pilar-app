@@ -26,9 +26,7 @@ const DropDown: React.FC<DropDownProps> = ({ value, varient, onChange }) => {
         value={value}
         onChange={(e) => onChange(e.target.value)}
       >
-        <option value="" selected>
-          Select Tower
-        </option>
+        <option value="">Select Tower</option>
         {options.map((option: DropDownOption, index) => (
           <option key={index} value={option.value}>
             {option.label}
