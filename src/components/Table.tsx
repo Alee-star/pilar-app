@@ -38,7 +38,11 @@ const Table: React.FC<TableProps> = ({ headers, hasImage, hasButtons }) => {
               <tr key={index} className="bg-white">
                 {hasImage && (
                   <td className="px-6 py-4">
-                    <img src="assets/tick.svg" alt="tick" />
+                    {user.hasMovedIn ? (
+                      <img src="assets/tick.svg" alt="tick" />
+                    ) : (
+                      <img src="assets/pending.svg" alt="pending" />
+                    )}
                   </td>
                 )}
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">

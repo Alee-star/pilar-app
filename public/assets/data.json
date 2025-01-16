@@ -7,7 +7,7 @@
     "moveInDate": "",
     "lastSignedIn": "",
     "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasImage": true
+    "hasMovedIn": true
   },
   {
     "name": "Anan Nasreen",
@@ -17,7 +17,7 @@
     "moveInDate": "",
     "lastSignedIn": "13/12/2024 - 01:43",
     "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasImage": true
+    "hasMovedIn": true
   },
   {
     "name": "Abraham SBL",
@@ -27,6 +27,6 @@
     "moveInDate": "",
     "lastSignedIn": "04/01/2025 - 11:35",
     "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasImage": true
+    "hasMovedIn": false
   }
 ]

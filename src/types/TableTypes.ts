@@ -6,6 +6,7 @@ export interface User {
   moveInDate: string;
   lastSignedIn: string;
   actions: string[];
+  hasMovedIn?: boolean;
 }
 
 export interface TableProps {
