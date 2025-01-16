@@ -5,6 +5,7 @@ import Searchbar from "./components/Searchbar";
 import DatePicker from "./components/DatePicker";
 import DropDown from "./components/DropDown";
 import "./index.css";
+import DetailTable from "./components/DetailTable";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <DropDown onChange={() => {}} />
           <ApartmentSelector label="Apartment" onChange={() => {}} />
         </div>
+        <DetailTable title="Unit details" />
       </div>
     </>
   );
