@@ -3,8 +3,8 @@ export interface User {
   apartment: string;
   tower: string;
   rent: number;
-  moveInDate: string;
-  lastSignedIn: string;
+  moveInDate?: string;
+  lastSignedIn?: string;
   actions: string[];
   hasMovedIn?: boolean;
 }

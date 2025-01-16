@@ -2,13 +2,17 @@ import React, { useEffect, useState } from "react";
 import { TableProps, User } from "../types/TableTypes";
 import Button from "./Button";
 
-const Table: React.FC<TableProps> = ({ headers, hasImage, hasButtons }) => {
-  const [users, setUsers] = useState<User[]>([]);
+const TenantTable: React.FC<TableProps> = ({
+  headers,
+  hasImage,
+  hasButtons,
+}) => {
+  const [tenants, setTenants] = useState<User[]>([]);
 
   useEffect(() => {
     fetch("assets/data.json")
       .then((response) => response.json())
-      .then((data) => setUsers(data))
+      .then((data) => setTenants(data))
       .catch((error) => console.error("error fetching data:", error));
   }, []);
 
@@ -34,11 +38,11 @@ const Table: React.FC<TableProps> = ({ headers, hasImage, hasButtons }) => {
             </tr>
           </thead>
           <tbody className="divide-y">
-            {users.map((user, index) => (
+            {tenants.map((tenant, index) => (
               <tr key={index} className="bg-white">
                 {hasImage && (
                   <td className="px-6 py-4">
-                    {user.hasMovedIn ? (
+                    {tenant.hasMovedIn ? (
                       <img src="assets/tick.svg" alt="tick" />
                     ) : (
                       <img src="assets/pending.svg" alt="pending" />
@@ -46,27 +50,31 @@ const Table: React.FC<TableProps> = ({ headers, hasImage, hasButtons }) => {
                   </td>
                 )}
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {user.name}
+                  {tenant.name}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {user.apartment}
+                  {tenant.apartment}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {user.tower}
+                  {tenant.tower}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {user.rent}
+                  {tenant.rent}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {user.moveInDate}
+                  {tenant.moveInDate || ""}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {user.lastSignedIn}
+                  {tenant.lastSignedIn || ""}
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex gap-x-4 items-center justify-between">
                     <Button label="View Detail" />
-                    <Button label="Re-invite" />
+                    <Button
+                      label={
+                        tenant.lastSignedIn ? "Re-invite" : "Reset Password"
+                      }
+                    />
                     <Button label="Archive" />
                   </div>
                 </td>
@@ -79,4 +87,4 @@ const Table: React.FC<TableProps> = ({ headers, hasImage, hasButtons }) => {
   );
 };
 
-export default Table;
+export default TenantTable;

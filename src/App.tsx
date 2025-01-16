@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Searchbar from "./components/Searchbar";
 import DatePicker from "./components/DatePicker";
 import DropDown from "./components/DropDown";
-import Table from "./components/Table";
+import Table from "./components/TenantTable";
 import "./index.css";
 
 function App() {
