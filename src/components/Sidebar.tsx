@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { ReactComponent as ArrowIcon } from "../assets/arrow.svg";
+import { Link, useNavigate } from "react-router-dom";
+import ArrowIcon from "../assets/arrow.svg?react";
+import MemberIcon from "../assets/members.svg?react";
 
 interface SidebarProps {
   setSelectedView: (view: string) => void;
@@ -8,6 +9,12 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ setSelectedView }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    setSelectedView("");
+    navigate(-1);
+  };
 
   const handleMembersClick = () => {
     setIsOpen((prev) => !prev);
@@ -19,19 +26,19 @@ const Sidebar: React.FC<SidebarProps> = ({ setSelectedView }) => {
         <div className="h-full overflow-y-auto overflow-x-hidden rounded bg-white py-4 px-3">
           <div className="h-full flex flex-col">
             <ul className="mt-4 space-y-2 border-gray-200">
-              <li>
+              <li className="cursor-pointer">
                 <div
-                  className="group flex w-full items-center rounded-lg text-base font-normal text-gray-900 hover:bg-gray-100"
+                  className="group flex w-full items-center p-2 rounded-lg text-base font-normal text-gray-900 hover:bg-gray-100"
                   onClick={handleMembersClick}
                 >
-                  <img
-                    src="assets/members.svg"
-                    className="h-6 w-6 text-gray-900"
-                  />
-                  <span className="ml-3 flex-1 whitespace-nowrap text-left">
+                  <MemberIcon className="h-6 w-6 text-gray-900" />
+                  <span
+                    className="ml-3 flex-1 whitespace-nowrap text-left"
+                    onClick={handleBackClick}
+                  >
                     Members
                   </span>
-                  <ArrowIcon />
+                  <ArrowIcon className="h-6 w-6 text-gray-900" />
                 </div>
                 {isOpen && (
                   <ul className="space-y-2 py-2">
