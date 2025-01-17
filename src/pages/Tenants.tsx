@@ -3,6 +3,7 @@ import DatePicker from "../components/DatePicker";
 import Searchbar from "../components/Searchbar";
 import ApartmentSelector from "../components/ApartmentSelector";
 import Layout from "../pages/Layout";
+import TenantDetails from "../components/TenantDetails";
 import TenantTable from "../components/TenantTable";
 
 const Tenants = () => {
@@ -28,6 +29,7 @@ const Tenants = () => {
             <ApartmentSelector label="Apartment" onChange={() => {}} />
           </div>
           <TenantTable headers={headers} hasIcon={true} hasButtons={true} />
+          <TenantDetails title="Unit details" />
         </>
       ) : (
         <p className="flex items-center">No data available</p>
