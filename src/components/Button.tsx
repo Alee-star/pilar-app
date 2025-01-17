@@ -4,7 +4,7 @@ import { ButtonProps, ButtonVarient } from "../types/ButtonTypes";
 const getButtonClasses = (varient: ButtonVarient): string => {
   switch (varient) {
     case ButtonVarient.PRIMARY:
-      return "text-gray-900 border border-gray-300 hover:bg-gray-100";
+      return "text-gray-900 border bg-white border-gray-300 hover:bg-gray-100";
     case ButtonVarient.SECONDARY:
       return "border border-transparent text-white bg-gray-800 hover:bg-gray-900";
     case ButtonVarient.DISABLED:
@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({
     varient
   )}`;
   const buttonText =
-    varient === ButtonVarient.SECONDARY ? "px-4 py-2" : "px-3 py-1.4";
+    varient === ButtonVarient.SECONDARY ? "px-4 py-2" : "px-3 py-1.5";
   const buttonTextClass = image
     ? "pl-3 text-xs sm:text-sm"
     : "text-xs sm:text-sm";
