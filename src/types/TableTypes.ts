@@ -7,9 +7,10 @@ export interface User {
   lastSignedIn?: string;
   actions: string[];
   hasMovedIn?: boolean;
+  id: "string";
 }
 
-export interface TableProps {
+export interface TenantTableProps {
   headers: string[];
   hasIcon?: boolean;
   hasButtons?: boolean;

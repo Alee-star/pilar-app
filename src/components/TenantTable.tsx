@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { TableProps, User } from "../types/TableTypes";
+import { TenantTableProps, User } from "../types/TableTypes";
 import Button from "./Button";
 
-const TenantTable: React.FC<TableProps> = ({
+const TenantTable: React.FC<TenantTableProps> = ({
   headers,
-  hasImage,
+  hasIcon,
   hasButtons,
 }) => {
   const [tenants, setTenants] = useState<User[]>([]);
@@ -22,7 +22,7 @@ const TenantTable: React.FC<TableProps> = ({
         <table className="w-full text-left text-sm text-gray-500">
           <thead className="bg-gray-50 text-xs uppercase text-gray-700 bg-gray-100">
             <tr>
-              {hasImage && <th className="px-6 py-3"></th>}
+              {hasIcon && <th className="px-6 py-3"></th>}
               {headers.map((header, index) => (
                 <th
                   key={index}
@@ -38,9 +38,9 @@ const TenantTable: React.FC<TableProps> = ({
             </tr>
           </thead>
           <tbody className="divide-y">
-            {tenants.map((tenant, index) => (
-              <tr key={index} className="bg-white">
-                {hasImage && (
+            {tenants.map((tenant) => (
+              <tr key={tenant.id} className="bg-white">
+                {hasIcon && (
                   <td className="px-6 py-4">
                     {tenant.hasMovedIn ? (
                       <img src="assets/tick.svg" alt="tick" />
