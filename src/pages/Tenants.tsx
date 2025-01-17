@@ -3,10 +3,20 @@ import DatePicker from "../components/DatePicker";
 import Searchbar from "../components/Searchbar";
 import ApartmentSelector from "../components/ApartmentSelector";
 import Layout from "../pages/Layout";
-import FileUploader from "../components/FileUploader";
+import TenantTable from "../components/TenantTable";
 
 const Tenants = () => {
   const [selectedView, setSelectedView] = useState("");
+
+  const headers = [
+    "Name",
+    "Apartment",
+    "Tower",
+    "Rent",
+    "Move In Date",
+    "Last Signed In",
+    "Actions",
+  ];
 
   return (
     <Layout setSelectedView={setSelectedView}>
@@ -17,14 +27,7 @@ const Tenants = () => {
             <DatePicker placeholder="mm/dd/yyyy" onChange={() => {}} />
             <ApartmentSelector label="Apartment" onChange={() => {}} />
           </div>
-          <div className="flex w-full mt-10 ml-3">
-            <FileUploader
-              requirement="Requirement: Pdf (max. 5MB)"
-              buttonLabel="Upload rental contract*"
-              helperText="This field is mandatory"
-              acceptedFormats=".pdf"
-            />
-          </div>
+          <TenantTable headers={headers} hasIcon={true} hasButtons={true} />
         </>
       ) : (
         <p className="flex items-center">No data available</p>
