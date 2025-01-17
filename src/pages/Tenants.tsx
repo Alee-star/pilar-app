@@ -1,17 +1,18 @@
-import { useState } from "react";
+import React from "react";
 import DatePicker from "../components/DatePicker";
 import Searchbar from "../components/Searchbar";
 import ApartmentSelector from "../components/ApartmentSelector";
-import Layout from "../pages/Layout";
 import FileUploader from "../components/FileUploader";
 import Button from "../components/Button";
 import { ButtonVarient } from "../types/ButtonTypes";
 
-const Tenants = () => {
-  const [selectedView, setSelectedView] = useState("");
+interface TenantsProps {
+  selectedView: string;
+}
 
+const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
   return (
-    <Layout setSelectedView={setSelectedView}>
+    <>
       {selectedView === "Tenants" ? (
         <>
           <div className="flex flex-col gap-3 mb-6">
@@ -44,7 +45,7 @@ const Tenants = () => {
       ) : (
         <p className="flex items-center">No data available</p>
       )}
-    </Layout>
+    </>
   );
 };
 
