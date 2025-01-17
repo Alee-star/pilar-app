@@ -2,7 +2,6 @@ import React from "react";
 import DatePicker from "../components/DatePicker";
 import Searchbar from "../components/Searchbar";
 import ApartmentSelector from "../components/ApartmentSelector";
-import FileUploader from "../components/FileUploader";
 import Button from "../components/Button";
 import { ButtonVarient } from "../types/ButtonTypes";
 
@@ -32,14 +31,6 @@ const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
               <DatePicker placeholder="mm/dd/yyyy" onChange={() => {}} />
               <ApartmentSelector label="Apartment" onChange={() => {}} />
             </div>
-          </div>
-          <div className="flex w-full mt-10 ml-3">
-            <FileUploader
-              requirement="Requirement: Pdf (max. 5MB)"
-              buttonLabel="Upload rental contract*"
-              helperText="This field is mandatory"
-              acceptedFormats=".pdf"
-            />
           </div>
         </>
       ) : (
