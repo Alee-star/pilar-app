@@ -42,7 +42,7 @@ const ApartmentSelector: React.FC<SelectorProps> = ({ label, onChange }) => {
         </div>
       </div>
       {isClicked && (
-        <div className="z-10 w-fit rounded border border-gray-200 bg-white text-gray-900 absolute top-[185px]">
+        <div className="z-10 w-fit rounded border border-gray-200 bg-white text-gray-900 absolute top-[240px]">
           <div className="py-1 text-sm text-gray-700">
             <ul className="py-1">
               <div className="flex flex-col items-center h-64 overflow-y-scroll overflow-x-hidden">
