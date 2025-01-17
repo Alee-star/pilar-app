@@ -1,4 +1,4 @@
-export interface DetailTableProps {
+export interface TenantDetailsProps {
   title: string;
 }
 

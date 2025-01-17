@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { DetailTableProps, DetailEntry } from "../types/DetailTableTypes";
+import { TenantDetailsProps, DetailEntry } from "../types/DetailTableTypes";
 import { titleToKey } from "../types/Map";
+import TablePart from "./TablePart";
 
-const TenantDetails: React.FC<DetailTableProps> = ({ title }) => {
+const TenantDetails: React.FC<TenantDetailsProps> = ({ title }) => {
   const [data, setData] = useState<DetailEntry[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  const convertTitleToKey = (displayTitle: string) => {
+  const getJsonKeyFromTitle = (displayTitle: string) => {
     return titleToKey[displayTitle] || displayTitle;
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      const jsonKey = convertTitleToKey(title);
+      const jsonKey = getJsonKeyFromTitle(title);
       try {
         const response = await fetch("/assets/details.json");
         if (!response.ok) {
@@ -41,26 +42,10 @@ const TenantDetails: React.FC<DetailTableProps> = ({ title }) => {
     <>
       <section>
         <div className="flex justify-between items-center mb-6 mt-4">
-          <h5 className="font-semibold text-xl leading-7">{title}</h5>
+          <h5 className="font-semibold text-xl leading-7">Unit details</h5>
         </div>
+        <TablePart data={data} />
       </section>
-      <div className="rounded-lg border overflow-hidden">
-        <table className="w-full text-sm text-left text-gray-500">
-          <tbody className="divide-y">
-            {data.map((item, index) => (
-              <tr
-                key={index}
-                className="bg-white text-gray-900 font-medium flex justify-start"
-              >
-                <td className="text-sm p-5 leading-5 border-r w-2/5 bg-gray-50 flex items-center gap-2">
-                  {item.label}
-                </td>
-                <td className="p-5 text-sm leading-6">{item.value}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
     </>
   );
 };
