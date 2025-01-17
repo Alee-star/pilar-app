@@ -1,5 +1,5 @@
 {
-  "Unit details": [
+  "unit_details": [
     {
       "label": "Unit Type",
       "value": "Apartment"
@@ -13,7 +13,7 @@
       "value": "Nenya-apartment-Nenya"
     }
   ],
-  "Tenant details": [
+  "tenant_details": [
     {
       "label": "Tenant Name",
       "value": "Nivya Mathew"
@@ -39,7 +39,7 @@
       "value": "Moved In"
     }
   ],
-  "Onboarding Information": [
+  "onboarding_information": [
     {
       "label": "Move in date",
       "value": ""
@@ -49,7 +49,7 @@
       "value": ""
     }
   ],
-  "Contract": [
+  "contract": [
     {
       "label": "Rental Contract",
       "value": "rental contract"
@@ -59,7 +59,7 @@
       "value": "654"
     }
   ],
-  "Other Documents": [
+  "other_documents": [
     {
       "label": "Documents",
       "value": ""

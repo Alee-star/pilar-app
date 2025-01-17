@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { DetailTableProps, DetailItem } from "../types/DetailTableTypes";
+import { titleKeyMappings } from "../types/Map";
 
 const DetailTable: React.FC<DetailTableProps> = ({ title }) => {
   const [data, setData] = useState<DetailItem[]>([]);
   const [error, setError] = useState<string | null>(null);
 
+  const mapTitleToKey = (displayTitle: string) => {
+    return titleKeyMappings[displayTitle] || displayTitle;
+  };
+
   useEffect(() => {
     const fetchData = async () => {
+      const jsonKey = mapTitleToKey(title);
       try {
         const response = await fetch("/assets/details.json");
         if (!response.ok) {
@@ -14,13 +20,8 @@ const DetailTable: React.FC<DetailTableProps> = ({ title }) => {
         }
         const result = await response.json();
 
-        if (result && typeof result === "object" && result[title]) {
-          const sectionData = result[title];
-          if (Array.isArray(sectionData)) {
-            setData(sectionData);
-          } else {
-            throw new Error("the section is not an array");
-          }
+        if (result && result[jsonKey]) {
+          setData(result[jsonKey]);
         } else {
           throw new Error("section not found in fetched data");
         }
@@ -37,9 +38,9 @@ const DetailTable: React.FC<DetailTableProps> = ({ title }) => {
   }
 
   return (
-    <div>
+    <>
       <section>
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex justify-between items-center mb-6 mt-4">
           <h5 className="font-semibold text-xl leading-7">{title}</h5>
         </div>
       </section>
@@ -60,7 +61,7 @@ const DetailTable: React.FC<DetailTableProps> = ({ title }) => {
           </tbody>
         </table>
       </div>
-    </div>
+    </>
   );
 };
 
