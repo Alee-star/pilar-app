@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { TenantTableProps, User } from "../types/TableTypes";
 import Button from "./Button";
 
@@ -8,6 +9,7 @@ const TenantTable: React.FC<TenantTableProps> = ({
   hasButtons,
 }) => {
   const [tenants, setTenants] = useState<User[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("assets/data.json")
@@ -15,6 +17,10 @@ const TenantTable: React.FC<TenantTableProps> = ({
       .then((data) => setTenants(data))
       .catch((error) => console.error("error fetching data:", error));
   }, []);
+
+  const handleArchiveClick = () => {
+    navigate("/archive");
+  };
 
   return (
     <div className="flex flex-col gap-3">
@@ -75,7 +81,7 @@ const TenantTable: React.FC<TenantTableProps> = ({
                         tenant.lastSignedIn ? "Re-invite" : "Reset Password"
                       }
                     />
-                    <Button label="Archive" />
+                    <Button label="Archive" onClick={handleArchiveClick} />
                   </div>
                 </td>
               </tr>
