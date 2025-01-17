@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { DetailTableProps, DetailItem } from "../types/DetailTableTypes";
-import { titleKeyMappings } from "../types/Map";
+import { DetailTableProps, DetailEntry } from "../types/DetailTableTypes";
+import { titleToKey } from "../types/Map";
 
-const DetailTable: React.FC<DetailTableProps> = ({ title }) => {
-  const [data, setData] = useState<DetailItem[]>([]);
+const TenantDetails: React.FC<DetailTableProps> = ({ title }) => {
+  const [data, setData] = useState<DetailEntry[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  const mapTitleToKey = (displayTitle: string) => {
-    return titleKeyMappings[displayTitle] || displayTitle;
+  const convertTitleToKey = (displayTitle: string) => {
+    return titleToKey[displayTitle] || displayTitle;
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      const jsonKey = mapTitleToKey(title);
+      const jsonKey = convertTitleToKey(title);
       try {
         const response = await fetch("/assets/details.json");
         if (!response.ok) {
@@ -65,4 +65,4 @@ const DetailTable: React.FC<DetailTableProps> = ({ title }) => {
   );
 };
 
-export default DetailTable;
+export default TenantDetails;

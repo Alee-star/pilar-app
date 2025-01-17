@@ -1,4 +1,4 @@
-export const titleKeyMappings: { [key: string]: string } = {
+export const titleToKey: { [key: string]: string } = {
   "Unit details": "unit_details",
   "Tenant details": "tenant_details",
   "Onboarding Information": "onboarding_information",

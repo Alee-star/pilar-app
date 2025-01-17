@@ -2,7 +2,7 @@ export interface DetailTableProps {
   title: string;
 }
 
-export interface DetailItem {
+export interface DetailEntry {
   label: string;
   value: string | number;
 }
