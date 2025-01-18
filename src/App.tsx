@@ -9,15 +9,24 @@ function App() {
 
   return (
     <Router>
-      <Layout setSelectedView={setSelectedView}>
-        <Routes>
-          <Route path="/" element={<Tenants selectedView={selectedView} />} />
-          <Route
-            path="/tenants"
-            element={<Tenants selectedView={selectedView} />}
-          />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout setSelectedView={setSelectedView}>
+              <Tenants selectedView={selectedView} />
+            </Layout>
+          }
+        />
+        <Route
+          path="/tenants"
+          element={
+            <Layout setSelectedView={setSelectedView}>
+              <Tenants selectedView={selectedView} />
+            </Layout>
+          }
+        />
+      </Routes>
     </Router>
   );
 }
