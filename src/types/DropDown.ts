@@ -8,6 +8,11 @@ export interface DropDownOption {
   value: string;
 }
 
+export interface TowerData {
+  title: string;
+  subAssets: DropDownOption[];
+}
+
 export interface DropDownProps {
   value?: string;
   varient?: DropDownVarient;

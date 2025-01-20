@@ -4,6 +4,7 @@ import Searchbar from "../components/Searchbar";
 import ApartmentSelector from "../components/ApartmentSelector";
 import Layout from "../pages/Layout";
 import TenantTable from "../components/TenantTable";
+import Pagination from "../components/Pagination";
 
 const Tenants = () => {
   const [selectedView, setSelectedView] = useState("");
@@ -28,6 +29,7 @@ const Tenants = () => {
             <ApartmentSelector label="Apartment" onChange={() => {}} />
           </div>
           <TenantTable headers={headers} hasIcon={true} hasButtons={true} />
+          <Pagination />
         </>
       ) : (
         <p className="flex items-center">No data available</p>
