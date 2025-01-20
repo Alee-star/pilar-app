@@ -72,7 +72,7 @@ const TenantTable: React.FC<TenantTableProps> = ({
                     <Button label="View Detail" />
                     <Button
                       label={
-                        tenant.lastSignedIn ? "Re-invite" : "Reset Password"
+                        tenant.lastSignedIn ? "Reset Password" : "Re-invite"
                       }
                     />
                     <Button label="Archive" />
