@@ -32,9 +32,13 @@ const DropDown: React.FC<ExtendedDropDownProps> = ({
   return (
     <div className="relative w-fit">
       <select
-        className={`block w-full border bg-gray-50 border-gray-300 text-gray-900 rounded-lg p-2.5 text-sm rounded-tr-0 rounded-br-0  ${DropDownClass}`}
+        className={`block w-full border bg-select bg-no-repeat bg-gray-50 border-gray-300 text-gray-900 rounded-lg p-2.5 text-sm rounded-tr-0 rounded-br-0 appearance-none pr-5 ${DropDownClass}`}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        style={{
+          backgroundPosition: "right 0.25rem center",
+          backgroundSize: "1.5em 1.5em",
+        }}
       >
         <option value="">{towerData?.title}</option>
         {towerData?.subAssets.map((option: DropDownOption, index) => (
