@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { TenantDetailsProps, DetailEntry } from "../types/DetailTableTypes";
 import { titleToKey } from "../types/Map";
-import TablePart from "./TablePart";
+import DetailTable from "./DetailTable";
 
 const TenantDetails: React.FC<TenantDetailsProps> = ({ title }) => {
   const [data, setData] = useState<DetailEntry[]>([]);
@@ -44,7 +44,7 @@ const TenantDetails: React.FC<TenantDetailsProps> = ({ title }) => {
         <div className="flex justify-between items-center mb-6 mt-4">
           <h5 className="font-semibold text-xl leading-7">Unit details</h5>
         </div>
-        <TablePart data={data} />
+        <DetailTable data={data} />
       </section>
     </>
   );

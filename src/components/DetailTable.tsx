@@ -5,7 +5,7 @@ interface DetailTableProps {
   data: DetailEntry[];
 }
 
-const TablePart: React.FC<DetailTableProps> = ({ data }) => {
+const DetailTable: React.FC<DetailTableProps> = ({ data }) => {
   return (
     <div className="rounded-lg border overflow-hidden">
       <table className="w-full text-sm text-left text-gray-500">
@@ -27,4 +27,4 @@ const TablePart: React.FC<DetailTableProps> = ({ data }) => {
   );
 };
 
-export default TablePart;
+export default DetailTable;
