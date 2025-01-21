@@ -28,11 +28,11 @@ const TenantTable: React.FC<TenantTableProps> = ({
         <table className="w-full text-left text-sm text-gray-500">
           <thead className="bg-gray-50 text-xs uppercase text-gray-700 bg-gray-100">
             <tr>
-              {hasIcon && <th className="px-6 py-3"></th>}
+              {hasIcon && <th className="px-6 py-4"></th>}
               {headers.map((header, index) => (
                 <th
                   key={index}
-                  className={`px-6 py-3 ${
+                  className={`px-6 py-4 ${
                     index === headers.length - 1 && hasButtons
                       ? "text-center"
                       : ""
@@ -78,7 +78,7 @@ const TenantTable: React.FC<TenantTableProps> = ({
                     <Button label="View Detail" />
                     <Button
                       label={
-                        tenant.lastSignedIn ? "Re-invite" : "Reset Password"
+                        tenant.lastSignedIn ? "Reset Password" : "Re-invite"
                       }
                     />
                     <Button
