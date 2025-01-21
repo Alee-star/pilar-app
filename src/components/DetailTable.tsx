@@ -7,7 +7,7 @@ interface DetailTableProps {
 
 const DetailTable: React.FC<DetailTableProps> = ({ data }) => {
   return (
-    <div className="rounded-lg border overflow-hidden">
+    <div className="rounded-lg border overflow-hidden mt-7">
       <table className="w-full text-sm text-left text-gray-500">
         <tbody className="divide-y">
           {data.map((item, index) => (
@@ -18,7 +18,17 @@ const DetailTable: React.FC<DetailTableProps> = ({ data }) => {
               <td className="text-sm p-5 leading-5 border-r w-2/5 bg-gray-50 flex items-center gap-2">
                 {item.label}
               </td>
-              <td className="p-5 text-sm leading-6">{item.value}</td>
+              <td className="p-5 text-sm leading-6">
+                {item.label === "Rental Contract" ? (
+                  <div className="flex flex-col text-blue-700 font-bold">
+                    <a href="#" className="hover:text-blue-400">
+                      {item.value}
+                    </a>
+                  </div>
+                ) : (
+                  item.value
+                )}
+              </td>
             </tr>
           ))}
         </tbody>

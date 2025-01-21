@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { TenantDetailsProps, DetailEntry } from "../types/DetailTableTypes";
 import { titleToKey } from "../types/Map";
 import DetailTable from "./DetailTable";
+import Button from "./Button";
 
 const TenantDetails: React.FC<TenantDetailsProps> = ({ title }) => {
   const [data, setData] = useState<DetailEntry[]>([]);
@@ -41,11 +42,13 @@ const TenantDetails: React.FC<TenantDetailsProps> = ({ title }) => {
   return (
     <>
       <section>
-        <div className="flex justify-between items-center mb-6 mt-4">
-          <h5 className="font-semibold text-xl leading-7">Unit details</h5>
+        <div className="flex justify-between items-center mb-6">
+          <h5 className="font-semibold text-xl leading-7 mt-1">{title}</h5>
+          <Button label="Edit" />
         </div>
-        <DetailTable data={data} />
       </section>
+      <DetailTable data={data} />
+      <div className="h-px bg-gray-200 w-full my-8" />
     </>
   );
 };
