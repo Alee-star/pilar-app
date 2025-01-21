@@ -18,8 +18,8 @@ const TenantTable: React.FC<TenantTableProps> = ({
       .catch((error) => console.error("error fetching data:", error));
   }, []);
 
-  const handleArchiveClick = () => {
-    navigate("/archive");
+  const handleArchiveClick = (tenantId: string) => {
+    navigate("/archive", { state: { tenantId } });
   };
 
   return (
@@ -81,7 +81,10 @@ const TenantTable: React.FC<TenantTableProps> = ({
                         tenant.lastSignedIn ? "Re-invite" : "Reset Password"
                       }
                     />
-                    <Button label="Archive" onClick={handleArchiveClick} />
+                    <Button
+                      label="Archive"
+                      onClick={() => handleArchiveClick(tenant.id)}
+                    />
                   </div>
                 </td>
               </tr>

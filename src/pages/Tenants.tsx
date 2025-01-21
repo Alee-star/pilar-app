@@ -4,9 +4,11 @@ import Searchbar from "../components/Searchbar";
 import ApartmentSelector from "../components/ApartmentSelector";
 import Layout from "../pages/Layout";
 import TenantTable from "../components/TenantTable";
+import { User } from "../types/TableTypes";
 
 const Tenants = () => {
   const [selectedView, setSelectedView] = useState("");
+  const [tenants, setTenants] = useState<User[]>([]);
 
   const headers = [
     "Name",
@@ -27,7 +29,13 @@ const Tenants = () => {
             <DatePicker placeholder="mm/dd/yyyy" onChange={() => {}} />
             <ApartmentSelector label="Apartment" onChange={() => {}} />
           </div>
-          <TenantTable headers={headers} hasIcon={true} hasButtons={true} />
+          <TenantTable
+            headers={headers}
+            hasIcon={true}
+            hasButtons={true}
+            tenants={tenants}
+            setTenants={setTenants}
+          />
         </>
       ) : (
         <p className="flex items-center">No data available</p>

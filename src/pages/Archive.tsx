@@ -1,20 +1,24 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import { ButtonVarient } from "../types/ButtonTypes";
 import CloseIcon from "../assets/close.svg?react";
+import { User } from "../types/TableTypes";
 
 interface ArchiveProps {
-  onClose: () => void;
+  setTenants: React.Dispatch<React.SetStateAction<User[]>>;
+  tenants: User[];
 }
 
 const Archive: React.FC<ArchiveProps> = () => {
+  const navigate = useNavigate();
+
   const handleYesClick = () => {
-    console.log("Tenant archived");
+    navigate(-1);
   };
 
   const handleNoClick = () => {
-    console.log("Archive canceled.");
-    window.history.back();
+    navigate(-1);
   };
 
   return (
@@ -29,7 +33,7 @@ const Archive: React.FC<ArchiveProps> = () => {
               <CloseIcon className="h-5 w-5" onClick={handleNoClick} />
             </div>
           </div>
-          <div className="p-6">Are you sure want to archive</div>
+          <div className="p-6">Are you sure you want to archive?</div>
           <div className="flex items-center space-x-2 rounded-b border-gray-200 p-6 border-t">
             <Button
               label="Yes"
