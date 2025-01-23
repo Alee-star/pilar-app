@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
-import { ButtonVarient } from "../types/ButtonTypes";
-import CloseIcon from "../assets/close.svg?react";
-import { User } from "../types/TableTypes";
+import Button from "../Button";
+import { ButtonVarient } from "../../types/ButtonTypes";
+import CloseIcon from "../../assets/close.svg?react";
+import { User } from "../../types/TableTypes";
 
 interface ArchiveProps {
   setTenants: React.Dispatch<React.SetStateAction<User[]>>;
@@ -13,11 +13,11 @@ interface ArchiveProps {
 const Archive: React.FC<ArchiveProps> = () => {
   const navigate = useNavigate();
 
-  const handleYesClick = () => {
+  const handleArchiveTenant = () => {
     navigate(-1);
   };
 
-  const handleNoClick = () => {
+  const handleCloseClick = () => {
     navigate(-1);
   };
 
@@ -30,7 +30,7 @@ const Archive: React.FC<ArchiveProps> = () => {
               Archive Tenant
             </h3>
             <div className="ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400">
-              <CloseIcon className="h-5 w-5" onClick={handleNoClick} />
+              <CloseIcon className="h-5 w-5" onClick={handleCloseClick} />
             </div>
           </div>
           <div className="p-6">Are you sure you want to archive?</div>
@@ -38,12 +38,12 @@ const Archive: React.FC<ArchiveProps> = () => {
             <Button
               label="Yes"
               varient={ButtonVarient.SECONDARY}
-              onClick={handleYesClick}
+              onClick={handleArchiveTenant}
             />
             <Button
               label="No"
               varient={ButtonVarient.SECONDARY}
-              onClick={handleNoClick}
+              onClick={handleCloseClick}
             />
           </div>
         </div>
