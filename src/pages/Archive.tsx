@@ -29,7 +29,7 @@ const Archive: React.FC<ArchiveProps> = () => {
             <h3 className="text-xl font-medium text-gray-900">
               Archive Tenant
             </h3>
-            <div className="ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400">
+            <div className="ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 cursor-pointer">
               <CloseIcon className="h-5 w-5" onClick={handleNoClick} />
             </div>
           </div>

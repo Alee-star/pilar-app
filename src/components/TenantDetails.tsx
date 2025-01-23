@@ -4,7 +4,7 @@ import { titleToKey } from "../types/Map";
 import DetailTable from "./DetailTable";
 import Button from "./Button";
 
-const TenantDetails: React.FC<TenantDetailsProps> = ({ title }) => {
+const TenantDetails: React.FC<TenantDetailsProps> = ({ title, tenantId }) => {
   const [data, setData] = useState<DetailEntry[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -16,24 +16,30 @@ const TenantDetails: React.FC<TenantDetailsProps> = ({ title }) => {
     const fetchData = async () => {
       const jsonKey = getJsonKeyFromTitle(title);
       try {
-        const response = await fetch("/assets/details.json");
+        const response = await fetch("/assets/data.json");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
         const result = await response.json();
 
-        if (result && result[jsonKey]) {
-          setData(result[jsonKey]);
+        const tenant = result.find(
+          (tenant: any) =>
+            tenant.id === tenantId &&
+            tenant.viewDetail &&
+            tenant.viewDetail[jsonKey]
+        );
+
+        if (tenant && tenant.viewDetail[jsonKey]) {
+          setData(tenant.viewDetail[jsonKey]);
         } else {
-          throw new Error("section not found in fetched data");
+          setData([]);
         }
       } catch (err: any) {
-        setError(err.message || "An unknown error occured");
-        console.error("Error in fetching data", err);
+        setError(err.message || "An unknown error occurred");
       }
     };
     fetchData();
-  }, [title]);
+  }, [title, tenantId]);
 
   if (error) {
     return <p>Error: {error}</p>;

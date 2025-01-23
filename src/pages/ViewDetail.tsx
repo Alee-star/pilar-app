@@ -1,13 +1,23 @@
+import { useLocation } from "react-router-dom";
 import TenantDetails from "../components/TenantDetails";
 
 const ViewDetail = () => {
+  const location = useLocation();
+  const { tenantId } = location.state || {};
+
+  const titles = [
+    "Unit details",
+    "Tenant details",
+    "Onboarding Information",
+    "Contract",
+    "Other Documents",
+  ];
+
   return (
     <>
-      <TenantDetails title="Unit details" />
-      <TenantDetails title="Tenant details" />
-      <TenantDetails title="Onboarding Information" />
-      <TenantDetails title="Contract" />
-      <TenantDetails title="Other Documents" />
+      {titles.map((title, index) => (
+        <TenantDetails key={index} title={title} tenantId={tenantId} />
+      ))}
     </>
   );
 };

@@ -6,6 +6,9 @@ interface DetailTableProps {
 }
 
 const DetailTable: React.FC<DetailTableProps> = ({ data }) => {
+  if (data.length === 0) {
+    return <p>No data available</p>;
+  }
   return (
     <div className="rounded-lg border overflow-hidden mt-7">
       <table className="w-full text-sm text-left text-gray-500">
