@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { TenantTableProps, User } from "../types/TableTypes";
 import Button from "./Button";
+import ArchiveModal from "./model/Archive";
 
 const TenantTable: React.FC<TenantTableProps> = ({
   headers,
@@ -9,7 +9,7 @@ const TenantTable: React.FC<TenantTableProps> = ({
   hasButtons,
 }) => {
   const [tenants, setTenants] = useState<User[]>([]);
-  const navigate = useNavigate();
+  const [archiveClick, setArchiveClick] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("assets/data.json")
@@ -19,7 +19,18 @@ const TenantTable: React.FC<TenantTableProps> = ({
   }, []);
 
   const handleArchiveClick = (tenantId: string) => {
-    navigate("/archive", { state: { tenantId } });
+    setArchiveClick(tenantId);
+  };
+
+  const handleArchiveConfirm = () => {
+    if (archiveClick) {
+      setTenants((prev) => prev.filter((tenant) => tenant.id !== archiveClick));
+      setArchiveClick(null);
+    }
+  };
+
+  const handleArchiveCancel = () => {
+    setArchiveClick(null);
   };
 
   return (
@@ -92,6 +103,14 @@ const TenantTable: React.FC<TenantTableProps> = ({
           </tbody>
         </table>
       </div>
+      {archiveClick && (
+        <ArchiveModal
+          tenantId={archiveClick}
+          setTenant={setTenants}
+          closeModal={handleArchiveCancel}
+          confirmArchive={handleArchiveConfirm}
+        />
+      )}
     </div>
   );
 };
