@@ -6,7 +6,7 @@ import Sidebar from "../components/Sidebar";
 
 interface LayoutProps {
   setSelectedView: React.Dispatch<React.SetStateAction<string>>;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ setSelectedView }) => {

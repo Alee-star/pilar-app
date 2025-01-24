@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import DatePicker from "../components/DatePicker";
 import Searchbar from "../components/Searchbar";
 import ApartmentSelector from "../components/ApartmentSelector";
@@ -10,6 +11,7 @@ interface TenantsProps {
 }
 
 const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
+  const navigate = useNavigate();
   const headers = [
     "Name",
     "Apartment",
@@ -19,6 +21,10 @@ const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
     "Last Signed In",
     "Actions",
   ];
+
+  const handleAddTenant = () => {
+    navigate("/addTenant");
+  };
 
   return (
     <>
@@ -34,6 +40,7 @@ const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
                 varient={ButtonVarient.SECONDARY}
                 imageAlt="plus-icon"
                 image="/assets/plus.svg"
+                onClick={handleAddTenant}
               />
             </div>
             <div className="flex items-center gap-2 flex-wrap">
