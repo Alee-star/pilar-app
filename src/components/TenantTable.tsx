@@ -9,7 +9,7 @@ const TenantTable: React.FC<TenantTableProps> = ({
   hasButtons,
 }) => {
   const [tenants, setTenants] = useState<User[]>([]);
-  const [archiveClick, setArchiveClick] = useState<string | null>(null);
+  const [selectedTenantId, setSelectedTenantId] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("assets/data.json")
@@ -19,18 +19,20 @@ const TenantTable: React.FC<TenantTableProps> = ({
   }, []);
 
   const handleArchiveClick = (tenantId: string) => {
-    setArchiveClick(tenantId);
+    setSelectedTenantId(tenantId);
   };
 
   const handleArchiveConfirm = () => {
-    if (archiveClick) {
-      setTenants((prev) => prev.filter((tenant) => tenant.id !== archiveClick));
-      setArchiveClick(null);
-    }
+    if (!selectedTenantId) return;
+
+    setTenants((prevTenants) =>
+      prevTenants.filter(({ id }) => id !== selectedTenantId)
+    );
+    setSelectedTenantId(null);
   };
 
   const handleArchiveCancel = () => {
-    setArchiveClick(null);
+    setSelectedTenantId(null);
   };
 
   return (
@@ -103,9 +105,9 @@ const TenantTable: React.FC<TenantTableProps> = ({
           </tbody>
         </table>
       </div>
-      {archiveClick && (
+      {selectedTenantId && (
         <ArchiveModal
-          tenantId={archiveClick}
+          tenantId={selectedTenantId}
           setTenant={setTenants}
           closeModal={handleArchiveCancel}
           confirmArchive={handleArchiveConfirm}
