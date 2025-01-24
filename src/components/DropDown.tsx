@@ -7,14 +7,14 @@ import {
 } from "../types/DropDown";
 
 interface ExtendedDropDownProps extends DropDownProps {
-  dataIndex: number;
+  dataName: string;
 }
 
 const DropDown: React.FC<ExtendedDropDownProps> = ({
   value,
   varient,
   onChange,
-  dataIndex,
+  dataName,
 }) => {
   const [towerData, setTowerData] = useState<TowerData | null>(null);
   const DropDownClass =
@@ -25,9 +25,14 @@ const DropDown: React.FC<ExtendedDropDownProps> = ({
   useEffect(() => {
     fetch("/assets/towers.json")
       .then((response) => response.json())
-      .then((data) => setTowerData(data[dataIndex]))
+      .then((data) => {
+        const matchedData = data.find(
+          (item: TowerData) => item.name === dataName
+        );
+        setTowerData(matchedData || null);
+      })
       .catch((error) => console.error("Error fetching data:", error));
-  }, [dataIndex]);
+  }, [dataName]);
 
   return (
     <div className="relative w-fit">

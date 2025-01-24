@@ -11,11 +11,12 @@ export interface DropDownOption {
 export interface TowerData {
   title: string;
   subAssets: DropDownOption[];
+  name: string;
 }
 
 export interface DropDownProps {
   value?: string;
   varient?: DropDownVarient;
   onChange: (value: string) => void;
-  options?: DropDownOption[];
+  data?: DropDownOption[];
 }

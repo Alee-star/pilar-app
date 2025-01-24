@@ -62,14 +62,12 @@ const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
             </div>
             <div className="my-1 h-px bg-gray-200"></div>
           </div>
-
           <TenantTable
             headers={headers}
             hasIcon={true}
             hasButtons={true}
             tenants={currentTenants}
           />
-
           <Pagination
             data={tenants}
             currentPage={currentPage}

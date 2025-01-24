@@ -1,5 +1,6 @@
 [
   {
+    "name": "tower",
     "title": "Select Tower",
     "subAssets": [
       {
@@ -17,6 +18,7 @@
     ]
   },
   {
+    "name": "page",
     "title": "25",
     "subAssets": [
       {
