@@ -36,7 +36,7 @@ const TenantDetails: React.FC<TenantDetailsProps> = ({ title, tenantId }) => {
         if (tenant) {
           const fields = mapTitleToFields[title] || [];
           const mappedData = fields.map((field) => ({
-            label: field === "DOB" ? field : field.replace(/([A-Z])/g, " $1"),
+            label: field === "DOB" ? field : field.replace(/([A-Z])/g, "$1"),
             value: tenant[field],
           }));
           setData(mappedData);
