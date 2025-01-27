@@ -67,6 +67,7 @@ const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
             hasIcon={true}
             hasButtons={true}
             tenants={currentTenants}
+            setTenants={setTenants}
           />
           <Pagination
             data={tenants}

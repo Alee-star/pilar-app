@@ -15,4 +15,5 @@ export interface TenantTableProps {
   hasIcon?: boolean;
   hasButtons?: boolean;
   tenants: User[];
+  setTenants: React.Dispatch<React.SetStateAction<User[]>>;
 }

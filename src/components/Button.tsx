@@ -4,7 +4,7 @@ import { ButtonProps, ButtonVarient } from "../types/ButtonTypes";
 const getButtonClasses = (varient: ButtonVarient): string => {
   switch (varient) {
     case ButtonVarient.PRIMARY:
-      return "text-gray-900 border bg-white border-gray-300 hover:bg-gray-100";
+      return "text-gray-900 border border-gray-300 hover:bg-gray-100 bg-white";
     case ButtonVarient.SECONDARY:
       return "border border-transparent text-white bg-gray-800 hover:bg-gray-900";
     case ButtonVarient.DISABLED:
