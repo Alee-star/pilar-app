@@ -1,15 +1,19 @@
+import { useState } from "react";
 import DatePicker from "../components/DatePicker";
 import Searchbar from "../components/Searchbar";
 import ApartmentSelector from "../components/ApartmentSelector";
 import TenantTable from "../components/TenantTable";
 import Button from "../components/Button";
 import { ButtonVarient } from "../types/ButtonTypes";
+import { User } from "../types/TableTypes";
 
 interface TenantsProps {
   selectedView: string;
 }
 
 const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
+  const [tenants, setTenants] = useState<User[]>([]);
+
   const headers = [
     "Name",
     "Apartment",
@@ -43,7 +47,13 @@ const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
             </div>
             <div className="my-1 h-px bg-gray-200"></div>
           </div>
-          <TenantTable headers={headers} hasIcon={true} hasButtons={true} />
+          <TenantTable
+            headers={headers}
+            hasIcon={true}
+            hasButtons={true}
+            tenants={tenants}
+            setTenants={setTenants}
+          />
         </>
       ) : (
         <p className="flex items-center">No data available</p>

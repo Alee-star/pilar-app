@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Tenants from "./pages/Tenants";
-import "./index.css";
 import Layout from "./pages/Layout";
 import { useState } from "react";
+import "./index.css";
 
 function App() {
   const [selectedView, setSelectedView] = useState("");
