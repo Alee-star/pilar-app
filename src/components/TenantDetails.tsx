@@ -1,20 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { TenantDetailsProps, DetailEntry } from "../types/DetailTableTypes";
-import { titleToKey } from "../types/Map";
+import { TenantDetailsProps } from "../types/DetailTableTypes";
 import DetailTable from "./DetailTable";
 import Button from "./Button";
 
 const TenantDetails: React.FC<TenantDetailsProps> = ({ title, tenantId }) => {
-  const [data, setData] = useState<DetailEntry[]>([]);
+  const [data, setData] = useState<{ label: string; value: string }[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  const getJsonKeyFromTitle = (displayTitle: string) => {
-    return titleToKey[displayTitle] || displayTitle;
+  const mapTitleToFields: { [key: string]: string[] } = {
+    "Unit details": ["Unit type", "Sub asset", "Apartment unit"],
+    "Tenant details": [
+      "Tenant Name",
+      "Gender",
+      "DOB",
+      "Email",
+      "Phone",
+      "Status",
+    ],
+    "Onboarding Information": ["Move in date", "Elevator Slots"],
+    Contract: ["Rental Contract", "Monthly rent"],
+    "Other Documents": ["Documents"],
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      const jsonKey = getJsonKeyFromTitle(title);
       try {
         const response = await fetch("/assets/data.json");
         if (!response.ok) {
@@ -22,15 +31,15 @@ const TenantDetails: React.FC<TenantDetailsProps> = ({ title, tenantId }) => {
         }
         const result = await response.json();
 
-        const tenant = result.find(
-          (tenant: any) =>
-            tenant.id === tenantId &&
-            tenant.viewDetail &&
-            tenant.viewDetail[jsonKey]
-        );
+        const tenant = result.find((tenant: any) => tenant.id === tenantId);
 
-        if (tenant && tenant.viewDetail[jsonKey]) {
-          setData(tenant.viewDetail[jsonKey]);
+        if (tenant) {
+          const fields = mapTitleToFields[title] || [];
+          const mappedData = fields.map((field) => ({
+            label: field === "DOB" ? field : field.replace(/([A-Z])/g, " $1"),
+            value: tenant[field],
+          }));
+          setData(mappedData);
         } else {
           setData([]);
         }

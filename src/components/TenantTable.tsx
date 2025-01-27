@@ -18,8 +18,8 @@ const TenantTable: React.FC<TenantTableProps> = ({
       .catch((error) => console.error("error fetching data:", error));
   }, []);
 
-  const handleViewDetailClick = (tenantId: string) => {
-    navigate("/viewDetail", { state: { tenantId } });
+  const handleTenantDetailClick = (tenantId: string) => {
+    navigate("/tenantDetails", { state: { tenantId } });
   };
 
   const handleArchiveClick = (tenantId: string) => {
@@ -81,7 +81,7 @@ const TenantTable: React.FC<TenantTableProps> = ({
                   <div className="flex gap-x-4 items-center justify-between">
                     <Button
                       label="View Detail"
-                      onClick={() => handleViewDetailClick(tenant.id)}
+                      onClick={() => handleTenantDetailClick(tenant.id)}
                       buttonId={tenant.id}
                     />
                     <Button

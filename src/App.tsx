@@ -4,8 +4,8 @@ import Layout from "./pages/Layout";
 import Archive from "./pages/Archive";
 import { useState } from "react";
 import { User } from "./types/TableTypes";
+import ViewTenantDetails from "./pages/ViewTenantDetail";
 import "./index.css";
-import ViewDetail from "./pages/ViewDetail";
 
 function App() {
   const [selectedView, setSelectedView] = useState("");
@@ -20,7 +20,7 @@ function App() {
             path="/tenants"
             element={<Tenants selectedView={selectedView} />}
           />
-          <Route path="/viewDetail" element={<ViewDetail />} />
+          <Route path="/tenantDetails" element={<ViewTenantDetails />} />
         </Route>
         <Route
           path="/archive"

@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import TenantDetails from "../components/TenantDetails";
 
-const ViewDetail = () => {
+const ViewTenantDetails = () => {
   const location = useLocation();
   const { tenantId } = location.state || {};
 
@@ -22,4 +22,4 @@ const ViewDetail = () => {
   );
 };
 
-export default ViewDetail;
+export default ViewTenantDetails;

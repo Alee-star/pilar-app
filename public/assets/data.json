@@ -2,238 +2,75 @@
   {
     "id": "1",
     "name": "Nivya Mathew",
-    "apartment": "1w",
-    "tower": "Change= ZO Test",
-    "rent": 100,
+    "Tenant Name": "Nivya Mathew",
+    "apartment": "Nenya - apartment",
+    "Unit type": "Apartment",
+    "tower": "Nenya",
+    "Sub asset": "Nenya",
+    "Apartment unit": "Nenya - apartment-Nenya",
+    "rent": 654,
+    "Monthly rent": 654,
     "moveInDate": "",
     "lastSignedIn": "",
     "actions": ["View Detail", "Re-invite", "Archive"],
     "hasMovedIn": true,
-    "viewDetail": {
-      "unit_details": [
-        {
-          "label": "Unit type",
-          "value": "Apartment"
-        },
-        {
-          "label": "Sub asset",
-          "value": "Nenya"
-        },
-        {
-          "label": "Apartment unit",
-          "value": "Nenya-apartment-Nenya"
-        }
-      ],
-      "tenant_details": [
-        {
-          "label": "Tenant Name",
-          "value": "Nivya Mathew"
-        },
-        {
-          "label": "Gender",
-          "value": "FEMALE"
-        },
-        {
-          "label": "DOB",
-          "value": "2025-01-01"
-        },
-        {
-          "label": "Email",
-          "value": "nivya.mathew+inviteemail1@vonnue.com"
-        },
-        {
-          "label": "Phone",
-          "value": "+918281933492"
-        },
-        {
-          "label": "Status",
-          "value": "Moved In"
-        }
-      ],
-      "onboarding_information": [
-        {
-          "label": "Move in date",
-          "value": ""
-        },
-        {
-          "label": "Elevator Slots",
-          "value": ""
-        }
-      ],
-      "contract": [
-        {
-          "label": "Rental Contract",
-          "value": "rental contract"
-        },
-        {
-          "label": "Monthly rent",
-          "value": "654"
-        }
-      ],
-      "other_documents": [
-        {
-          "label": "Documents",
-          "value": ""
-        }
-      ]
-    }
+    "Phone": "+918281933492",
+    "Gender": "FEMALE",
+    "DOB": "2025-01-01",
+    "Email": "nivya.mathew+inviteemail1@vonnue.com",
+    "Status": "Moved In",
+    "Rental Contract": "rental contract",
+    "Documents": "",
+    "Elevator Slots": "",
+    "Move in date": ""
   },
   {
     "id": "2",
     "name": "Anan Nasreen",
+    "Tenant Name": "Anan Nasreen",
     "apartment": "Nenya - apartment",
+    "Unit type": "Apartment",
+    "Sub asset": "Nenya",
+    "Apartment unit": "Nenya - apartment-Nenya",
     "tower": "Nenya",
     "rent": 2000,
+    "Monthly rent": 2000,
     "moveInDate": "",
     "lastSignedIn": "13/12/2024 - 01:43",
     "actions": ["View Detail", "Re-invite", "Archive"],
     "hasMovedIn": true,
-    "viewDetail": {
-      "unit_details": [
-        {
-          "label": "Unit type",
-          "value": "Apartment"
-        },
-        {
-          "label": "Sub asset",
-          "value": "Nenya"
-        },
-        {
-          "label": "Apartment unit",
-          "value": "Nenya-apartment-Nenya"
-        }
-      ],
-      "tenant_details": [
-        {
-          "label": "Tenant Name",
-          "value": "Anan Nasreen"
-        },
-        {
-          "label": "Gender",
-          "value": "FEMALE"
-        },
-        {
-          "label": "DOB",
-          "value": "2001-07-18"
-        },
-        {
-          "label": "Email",
-          "value": "anan.nasreen+propertymanager@vonnue.com"
-        },
-        {
-          "label": "Phone",
-          "value": "+918590898891"
-        },
-        {
-          "label": "Status",
-          "value": "Moved In"
-        }
-      ],
-      "onboarding_information": [
-        {
-          "label": "Move in date",
-          "value": ""
-        },
-        {
-          "label": "Elevator Slots",
-          "value": ""
-        }
-      ],
-      "contract": [
-        {
-          "label": "Rental Contract",
-          "value": "rental contract"
-        },
-        {
-          "label": "Monthly rent",
-          "value": "2000"
-        }
-      ],
-      "other_documents": [
-        {
-          "label": "Documents",
-          "value": ""
-        }
-      ]
-    }
+    "Phone": "+918590898891",
+    "Gender": "FEMALE",
+    "DOB": "2001-07-18",
+    "Email": "anan.nasreen+propertymanager@vonnue.com",
+    "Status": "Moved In",
+    "Rental Contract": "rental contract",
+    "Documents": "",
+    "Elevator Slots": "",
+    "Move in date": ""
   },
   {
     "id": "3",
     "name": "Abraham SBL",
     "apartment": "AB1",
     "tower": "SBL littlelake",
+    "Unit type": "Apartment",
+    "Sub asset": "Nenya",
+    "Apartment unit": "Test apartment-Nenya",
     "rent": 654,
+    "Monthly rent": 654,
     "moveInDate": "",
     "lastSignedIn": "04/01/2025 - 11:35",
     "actions": ["View Detail", "Re-invite", "Archive"],
     "hasMovedIn": false,
-    "viewDetail": {
-      "unit_details": [
-        {
-          "label": "Unit type",
-          "value": "Apartment"
-        },
-        {
-          "label": "Sub asset",
-          "value": "SBL littlelake"
-        },
-        {
-          "label": "Apartment unit",
-          "value": "AB1-SBL littlelake"
-        }
-      ],
-      "tenant_details": [
-        {
-          "label": "Tenant Name",
-          "value": "Abraham SBL"
-        },
-        {
-          "label": "Gender",
-          "value": "MALE"
-        },
-        {
-          "label": "DOB",
-          "value": "2024-11-01"
-        },
-        {
-          "label": "Email",
-          "value": "abraham.geogrge+sbldev@vonnue.com"
-        },
-        {
-          "label": "Phone",
-          "value": "+918281933492"
-        },
-        {
-          "label": "Status",
-          "value": "Moved In"
-        }
-      ],
-      "onboarding_information": [
-        {
-          "label": "Move in date",
-          "value": ""
-        },
-        {
-          "label": "Elevator Slots",
-          "value": ""
-        }
-      ],
-      "contract": [
-        {
-          "label": "Rental Contract",
-          "value": "rental contract"
-        },
-        {
-          "label": "Monthly rent",
-          "value": "654"
-        }
-      ],
-      "other_documents": [
-        {
-          "label": "Documents",
-          "value": ""
-        }
-      ]
-    }
+    "Phone": "+918281933492",
+    "Gender": "MALE",
+    "DOB": "2024-11-01",
+    "Email": "abraham.geogrge+sbldev@vonnue.com",
+    "Status": " Not Moved In",
+    "Rental Contract": "rental contract",
+    "Documents": "",
+    "Elevator Slots": "",
+    "Move in date": ""
   }
 ]
