@@ -1,38 +1,27 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import {
   DropDownProps,
   DropDownVarient,
   DropDownOption,
-  TowerData,
 } from "../types/DropDown";
 
-interface ExtendedDropDownProps extends DropDownProps {
-  dataName: string;
+interface DropDownComponentProps extends DropDownProps {
+  data: {
+    title: string;
+    subAssets: DropDownOption[];
+  };
 }
 
-const DropDown: React.FC<ExtendedDropDownProps> = ({
+const DropDown: React.FC<DropDownComponentProps> = ({
   value,
   varient,
   onChange,
-  dataName,
+  data,
 }) => {
-  const [towerData, setTowerData] = useState<TowerData | null>(null);
   const DropDownClass =
     varient === DropDownVarient.SECONDARY
       ? "w-[500px] opacity-50 cursor-not-allowed"
       : "w-[70px]";
-
-  useEffect(() => {
-    fetch("/assets/towers.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const matchedData = data.find(
-          (item: TowerData) => item.name === dataName
-        );
-        setTowerData(matchedData || null);
-      })
-      .catch((error) => console.error("Error fetching data:", error));
-  }, [dataName]);
 
   return (
     <div className="relative w-fit">
@@ -45,8 +34,8 @@ const DropDown: React.FC<ExtendedDropDownProps> = ({
           backgroundSize: "1.5em 1.5em",
         }}
       >
-        <option value="">{towerData?.title}</option>
-        {towerData?.subAssets.map((option: DropDownOption, index) => (
+        <option value="">{data.title}</option>
+        {data.subAssets.map((option, index) => (
           <option key={index} value={option.value}>
             {option.label}
           </option>

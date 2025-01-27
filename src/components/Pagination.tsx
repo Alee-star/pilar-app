@@ -1,8 +1,15 @@
-import { DropDownVarient } from "../types/DropDown";
+import React, { useEffect, useState } from "react";
+import { DropDownVarient, DropDownOption } from "../types/DropDown";
 import PreviousButton from "../assets/previous.svg?react";
 import NextButton from "../assets/next.svg?react";
 import DropDown from "./DropDown";
 import { PaginationProps } from "../types/PaginationTypes";
+
+interface PageData {
+  name: string;
+  title: string;
+  subAssets: DropDownOption[];
+}
 
 const Pagination: React.FC<PaginationProps> = ({
   data = [],
@@ -11,7 +18,18 @@ const Pagination: React.FC<PaginationProps> = ({
   setCurrentPage,
   setRowsPerPage,
 }) => {
+  const [pageData, setPageData] = useState<PageData | null>(null);
   const totalDataCount = data.length;
+
+  useEffect(() => {
+    fetch("/assets/pagination.json")
+      .then((response) => response.json())
+      .then((json) => {
+        const fetchedData = json.find((item: PageData) => item.name === "page");
+        setPageData(fetchedData || null);
+      })
+      .catch((error) => console.error("Error fetching page data:", error));
+  }, []);
 
   const handlePageChange = (direction: "next" | "previous") => {
     if (direction === "next" && currentPage * rowsPerPage < totalDataCount) {
@@ -33,11 +51,16 @@ const Pagination: React.FC<PaginationProps> = ({
     <div className="flex flex-row items-center justify-between text-center border rounded-lg p-3 shadow-md mt-4">
       <div className="flex flex-row items-center gap-2 w-1/2">
         <span className="text-sm">Rows per page</span>
-        <DropDown
-          varient={DropDownVarient.PRIMARY}
-          onChange={handleRowsPerPageChange}
-          dataName="page"
-        />
+        {pageData ? (
+          <DropDown
+            varient={DropDownVarient.PRIMARY}
+            onChange={handleRowsPerPageChange}
+            value={rowsPerPage.toString()}
+            data={pageData}
+          />
+        ) : (
+          <span>Loading...</span>
+        )}
         <span className="flex flex-nowrap w-24">{`${
           startIndex + 1
         }-${endIndex} of ${totalDataCount}`}</span>

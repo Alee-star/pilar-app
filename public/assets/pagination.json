@@ -1,0 +1,16 @@
+[
+  {
+    "name": "page",
+    "title": "25",
+    "subAssets": [
+      {
+        "label": "50",
+        "value": "50"
+      },
+      {
+        "label": "100",
+        "value": "100"
+      }
+    ]
+  }
+]

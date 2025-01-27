@@ -18,5 +18,5 @@ export interface DropDownProps {
   value?: string;
   varient?: DropDownVarient;
   onChange: (value: string) => void;
-  data?: DropDownOption[];
+  // data?: DropDownOption[];
 }
