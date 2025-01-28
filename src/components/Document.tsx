@@ -45,7 +45,9 @@ const Document: React.FC<DocumentProps> = ({ tenantId }) => {
     <>
       <section>
         <div className="flex justify-between items-center mb-6">
-          <h5 className="font-semibold text-xl leading-7 mt-1">Contract</h5>
+          <h5 className="font-semibold text-xl leading-7 mt-1">
+            Other Documents
+          </h5>
           <Button label="Edit" />
         </div>
       </section>
