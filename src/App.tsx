@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Tenants from "./pages/Tenants";
 import Layout from "./pages/Layout";
 import { useState } from "react";
-import "./index.css";
+import AddTenant from "./pages/AddTenant";
 
 function App() {
   const [selectedView, setSelectedView] = useState("");
@@ -17,6 +17,7 @@ function App() {
             element={<Tenants selectedView={selectedView} />}
           />
         </Route>
+        <Route path="/addTenant" element={<AddTenant />} />
       </Routes>
     </Router>
   );

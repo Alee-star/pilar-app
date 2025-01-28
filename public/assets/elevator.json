@@ -1,0 +1,20 @@
+[
+  {
+    "name": "elevator",
+    "title": "Select Elevator",
+    "subAssets": [
+      {
+        "label": "service elevator",
+        "value": "elevator1"
+      },
+      {
+        "label": "elevator test",
+        "value": "elevator2"
+      },
+      {
+        "label": "dummy elevator",
+        "value": "elevator3"
+      }
+    ]
+  }
+]
