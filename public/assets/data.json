@@ -22,7 +22,19 @@
     "Rental Contract": "rental contract",
     "Documents": "",
     "Elevator Slots": "",
-    "Move in date": ""
+    "Move in date": "",
+    "Unit details": ["Unit type", "Sub asset", "Apartment unit"],
+    "Tenant details": [
+      "Tenant Name",
+      "Gender",
+      "DOB",
+      "Email",
+      "Phone",
+      "Status"
+    ],
+    "Onboarding Information": ["Move in date", "Elevator Slots"],
+    "Contract": ["Rental Contract", "Monthly rent"],
+    "Other Documents": ["Documents"]
   },
   {
     "id": "2",
@@ -47,11 +59,24 @@
     "Rental Contract": "rental contract",
     "Documents": "",
     "Elevator Slots": "",
-    "Move in date": ""
+    "Move in date": "",
+    "Unit details": ["Unit type", "Sub asset", "Apartment unit"],
+    "Tenant details": [
+      "Tenant Name",
+      "Gender",
+      "DOB",
+      "Email",
+      "Phone",
+      "Status"
+    ],
+    "Onboarding Information": ["Move in date", "Elevator Slots"],
+    "Contract": ["Rental Contract", "Monthly rent"],
+    "Other Documents": ["Documents"]
   },
   {
     "id": "3",
     "name": "Abraham SBL",
+    "Tenant Name": "Abraham SBL",
     "apartment": "AB1",
     "tower": "SBL littlelake",
     "Unit type": "Apartment",
@@ -71,6 +96,18 @@
     "Rental Contract": "rental contract",
     "Documents": "",
     "Elevator Slots": "",
-    "Move in date": ""
+    "Move in date": "",
+    "Unit details": ["Unit type", "Sub asset", "Apartment unit"],
+    "Tenant details": [
+      "Tenant Name",
+      "Gender",
+      "DOB",
+      "Email",
+      "Phone",
+      "Status"
+    ],
+    "Onboarding Information": ["Move in date", "Elevator Slots"],
+    "Contract": ["Rental Contract", "Monthly rent"],
+    "Other Documents": ["Documents"]
   }
 ]
