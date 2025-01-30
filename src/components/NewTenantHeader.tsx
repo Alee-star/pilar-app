@@ -1,7 +1,12 @@
+import React from "react";
 import BackIcon from "../assets/back.svg?react";
 import { useNavigate } from "react-router-dom";
 
-const NewTenantHeader = () => {
+interface NewTenantHeaderProps {
+  isCompleted: boolean;
+}
+
+const NewTenantHeader: React.FC<NewTenantHeaderProps> = ({ isCompleted }) => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -26,14 +31,28 @@ const NewTenantHeader = () => {
                     <div className="w-2 h-2 rounded-full bg-gray-800 mt-2" />
                   </div>
                 </div>
-                <div className="h-px w-3 bg-gray-300" />
+                {isCompleted ? (
+                  <div className="h-px w-3 bg-gray-800" />
+                ) : (
+                  <div className="h-px w-3 bg-gray-300" />
+                )}
               </div>
               <div className="flex w-full items-center my-auto h-full justify-start">
-                <div className="h-px w-3 bg-gray-300" />
+                {isCompleted ? (
+                  <div className="h-px w-3 bg-gray-800" />
+                ) : (
+                  <div className="h-px w-3 bg-gray-300" />
+                )}
                 <div className="flex items-center">
-                  <div className="w-6 h-6 rounded-full flex justify-center border-2 border-gray-800 box-content opacity-50">
-                    <div className="w-2 h-2 rounded-full bg-gray-800 mt-2" />
-                  </div>
+                  {isCompleted ? (
+                    <div className="w-6 h-6 rounded-full flex justify-center items-center border-2 border-gray-800 box-content">
+                      <div className="w-2 h-2 rounded-full bg-gray-800"></div>
+                    </div>
+                  ) : (
+                    <div className="w-6 h-6 rounded-full flex justify-center items-center border-2 border-gray-300">
+                      <div className="w-2 h-2 rounded-full bg-gray-300" />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
