@@ -31,7 +31,9 @@ const Pagination: React.FC<PaginationProps> = ({
       .catch((error) => console.error("Error fetching page data:", error));
   }, []);
 
-  const handlePageChange = (direction: "next" | "previous") => {
+  const handlePageChange = (
+    direction: NavigationDirection.PREVIOUS | NavigationDirection.NEXT
+  ) => {
     if (direction === NavigationDirection.NEXT && currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     } else if (direction === NavigationDirection.PREVIOUS && currentPage > 1) {
