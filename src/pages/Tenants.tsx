@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import DatePicker from "../components/DatePicker";
 import Searchbar from "../components/Searchbar";
 import ApartmentSelector from "../components/ApartmentSelector";
@@ -26,6 +27,7 @@ const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
   const [tenants, setTenants] = useState<User[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(25);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("assets/data.json")
@@ -38,6 +40,10 @@ const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
   const startIndex = (currentPage - 1) * rowsPerPage;
   const endIndex = Math.min(currentPage * rowsPerPage, totalTenants);
   const currentTenants = tenants.slice(startIndex, endIndex);
+
+  const handleAddTenant = () => {
+    navigate("/addTenant");
+  };
 
   return (
     <>
@@ -53,6 +59,7 @@ const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
                 varient={ButtonVarient.SECONDARY}
                 imageAlt="plus-icon"
                 image="/assets/plus.svg"
+                onClick={handleAddTenant}
               />
             </div>
             <div className="flex items-center gap-2 flex-wrap">
