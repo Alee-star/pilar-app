@@ -1,11 +1,12 @@
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import DatePicker from "../components/DatePicker";
 import Searchbar from "../components/Searchbar";
 import ApartmentSelector from "../components/ApartmentSelector";
 import TenantTable from "../components/TenantTable";
 import Button from "../components/Button";
+import Pagination from "../components/Pagination";
 import { ButtonVarient } from "../types/ButtonTypes";
-import { useState } from "react";
 import { User } from "../types/TableTypes";
 
 interface TenantsProps {
@@ -13,9 +14,6 @@ interface TenantsProps {
 }
 
 const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
-  const [tenants, setTenants] = useState<User[]>([]);
-  const navigate = useNavigate();
-
   const headers = [
     "Name",
     "Apartment",
@@ -25,6 +23,23 @@ const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
     "Last Signed In",
     "Actions",
   ];
+
+  const [tenants, setTenants] = useState<User[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(25);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch("assets/data.json")
+      .then((response) => response.json())
+      .then((data) => setTenants(data))
+      .catch((error) => console.error("error fetching data:", error));
+  }, []);
+
+  const totalTenants = tenants.length;
+  const startIndex = (currentPage - 1) * rowsPerPage;
+  const endIndex = Math.min(currentPage * rowsPerPage, totalTenants);
+  const currentTenants = tenants.slice(startIndex, endIndex);
 
   const handleAddTenant = () => {
     navigate("/addTenant");
@@ -58,9 +73,18 @@ const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
             headers={headers}
             hasIcon={true}
             hasButtons={true}
-            tenants={tenants}
+            tenants={currentTenants}
             setTenants={setTenants}
           />
+          {totalTenants > 0 && (
+            <Pagination
+              totalCount={totalTenants}
+              currentPage={currentPage}
+              rowsPerPage={rowsPerPage}
+              setCurrentPage={setCurrentPage}
+              setRowsPerPage={setRowsPerPage}
+            />
+          )}
         </>
       ) : (
         <p className="flex items-center">No data available</p>
