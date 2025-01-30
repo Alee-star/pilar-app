@@ -9,7 +9,7 @@ interface LayoutProps {
   children?: ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ setSelectedView }) => {
+const Layout = ({ setSelectedView, children }: LayoutProps) => {
   return (
     <div className="h-screen overflow-hidden flex flex-col">
       <Header />
@@ -20,6 +20,7 @@ const Layout: React.FC<LayoutProps> = ({ setSelectedView }) => {
           <Outlet />
         </main>
       </div>
+      {children}
     </div>
   );
 };

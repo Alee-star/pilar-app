@@ -2,17 +2,17 @@
   {
     "name": "tower",
     "title": "Select Tower",
-    "subAssets": [
+    "dropDownOptions": [
       {
-        "label": "SBL littlelake",
+        "label": "Sub-asset-1",
         "value": "tower1"
       },
       {
-        "label": "Nenya",
+        "label": "Sub-asset-2",
         "value": "tower2"
       },
       {
-        "label": "Sub-asset-1",
+        "label": "Sub-asset-3",
         "value": "tower3"
       }
     ]

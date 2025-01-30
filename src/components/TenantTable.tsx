@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { TenantTableProps, User } from "../types/TableTypes";
+import React, { useState, useEffect } from "react";
+import { TenantTableProps } from "../types/TableTypes";
 import Button from "./Button";
 import ArchiveModal from "./model/Archive";
 
@@ -7,8 +7,9 @@ const TenantTable: React.FC<TenantTableProps> = ({
   headers,
   hasIcon,
   hasButtons,
+  tenants,
+  setTenants,
 }) => {
-  const [tenants, setTenants] = useState<User[]>([]);
   const [selectedTenantId, setSelectedTenantId] = useState<string | null>(null);
 
   useEffect(() => {

@@ -8,9 +8,11 @@ import {
 interface DropDownComponentProps extends DropDownProps {
   data: {
     title: string;
-    subAssets: DropDownOption[];
+    dropDownOptions: DropDownOption[];
   };
   styles?: React.CSSProperties;
+  hasTitle?: boolean;
+  disabled?: boolean;
 }
 
 const DropDown: React.FC<DropDownComponentProps> = ({
@@ -19,6 +21,8 @@ const DropDown: React.FC<DropDownComponentProps> = ({
   onChange,
   styles,
   data,
+  hasTitle = false,
+  disabled,
 }) => {
   const DropDownClass =
     varient === DropDownVarient.SECONDARY
@@ -26,8 +30,9 @@ const DropDown: React.FC<DropDownComponentProps> = ({
       : "w-full";
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-fit">
       <select
+        disabled={disabled}
         className={`block border bg-select bg-no-repeat bg-gray-50 border-gray-300 text-gray-900 rounded-lg p-2.5 text-sm rounded-tr-0 rounded-br-0 appearance-none pr-5 ${DropDownClass}`}
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -38,8 +43,8 @@ const DropDown: React.FC<DropDownComponentProps> = ({
           ...styles,
         }}
       >
-        <option value="">{data.title}</option>
-        {data.subAssets.map((option, index) => (
+        {hasTitle && <option value="">{data.title}</option>}
+        {data.dropDownOptions.map((option, index) => (
           <option key={index} value={option.value}>
             {option.label}
           </option>

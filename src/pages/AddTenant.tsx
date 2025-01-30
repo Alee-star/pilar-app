@@ -10,13 +10,13 @@ import FileUploader from "../components/FileUploader";
 interface TowerData {
   name: string;
   title: string;
-  subAssets: DropDownOption[];
+  dropDownOptions: DropDownOption[];
 }
 
 interface ElevatorData {
   name: string;
   title: string;
-  subAssets: DropDownOption[];
+  dropDownOptions: DropDownOption[];
 }
 
 const AddTenant = () => {
@@ -65,8 +65,11 @@ const AddTenant = () => {
               <div className="flex w-full">
                 <div className="flex">
                   <DropDown
+                    hasTitle
                     onChange={() => {}}
-                    data={towerData || { title: "Loading..", subAssets: [] }}
+                    data={
+                      towerData || { title: "Loading..", dropDownOptions: [] }
+                    }
                     styles={{
                       borderTopRightRadius: "0px",
                       borderBottomRightRadius: "0px",
@@ -75,8 +78,11 @@ const AddTenant = () => {
                 </div>
                 <div className="flex">
                   <DropDown
+                    hasTitle
                     onChange={() => {}}
-                    data={towerData || { title: "Loading..", subAssets: [] }}
+                    data={
+                      towerData || { title: "Loading..", dropDownOptions: [] }
+                    }
                     varient={DropDownVarient.SECONDARY}
                     styles={{
                       borderTopLeftRadius: "0px",
@@ -116,7 +122,10 @@ const AddTenant = () => {
               </label>
               <div className="flex items-center gap-2">
                 <DropDown
-                  data={elevatorData || { title: "Loading..", subAssets: [] }}
+                  hasTitle
+                  data={
+                    elevatorData || { title: "Loading..", dropDownOptions: [] }
+                  }
                   onChange={(value) => setSelectedElevator(value)}
                 />
               </div>
@@ -139,7 +148,7 @@ const AddTenant = () => {
                         <option>11:00 - 12:00</option>
                       </select>
                     ) : (
-                      <div className="text-gray-400">No data</div>
+                      <></>
                     )}
                   </div>
                 </div>

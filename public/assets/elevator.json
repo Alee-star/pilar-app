@@ -2,7 +2,7 @@
   {
     "name": "elevator",
     "title": "Select Elevator",
-    "subAssets": [
+    "dropDownOptions": [
       {
         "label": "service elevator",
         "value": "elevator1"
