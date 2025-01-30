@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
@@ -6,9 +6,10 @@ import Sidebar from "../components/Sidebar";
 
 interface LayoutProps {
   setSelectedView: React.Dispatch<React.SetStateAction<string>>;
+  children?: ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ setSelectedView }) => {
+const Layout = ({ setSelectedView, children }: LayoutProps) => {
   return (
     <div className="h-screen overflow-hidden flex flex-col">
       <Header />
@@ -19,6 +20,7 @@ const Layout: React.FC<LayoutProps> = ({ setSelectedView }) => {
           <Outlet />
         </main>
       </div>
+      {children}
     </div>
   );
 };
