@@ -3,18 +3,20 @@ import BackIcon from "../assets/back.svg?react";
 import { useNavigate } from "react-router-dom";
 
 interface NewTenantHeaderProps {
-  isCompleted: boolean;
+  isTenantDetailsAdded: boolean;
 }
 
-const NewTenantHeader: React.FC<NewTenantHeaderProps> = ({ isCompleted }) => {
+const NewTenantHeader: React.FC<NewTenantHeaderProps> = ({
+  isTenantDetailsAdded,
+}) => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
     navigate(-1);
   };
 
-  const progressBarStyle = isCompleted ? "bg-gray-800" : "bg-gray-300";
-  const progressCircleStyle = isCompleted
+  const progressBarStyle = isTenantDetailsAdded ? "bg-gray-800" : "bg-gray-300";
+  const progressIconStyle = isTenantDetailsAdded
     ? " border-gray-800"
     : "border-gray-300";
 
@@ -42,7 +44,7 @@ const NewTenantHeader: React.FC<NewTenantHeaderProps> = ({ isCompleted }) => {
                 <div className={`h-px w-3 ${progressBarStyle}`} />
                 <div className="flex items-center">
                   <div
-                    className={`w-6 h-6 rounded-full flex justify-center items-center border-2 ${progressCircleStyle} box-content`}
+                    className={`w-6 h-6 rounded-full flex justify-center items-center border-2 ${progressIconStyle} box-content`}
                   >
                     <div
                       className={`w-2 h-2 rounded-full ${progressBarStyle}`}
