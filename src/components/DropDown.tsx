@@ -8,7 +8,7 @@ import {
 interface DropDownComponentProps extends DropDownProps {
   data: {
     title: string;
-    subAssets: DropDownOption[];
+    dropDownOptions: DropDownOption[];
   };
   styles?: React.CSSProperties;
 }
@@ -39,7 +39,7 @@ const DropDown: React.FC<DropDownComponentProps> = ({
         }}
       >
         <option value="">{data.title}</option>
-        {data.subAssets.map((option, index) => (
+        {data.dropDownOptions.map((option, index) => (
           <option key={index} value={option.value}>
             {option.label}
           </option>

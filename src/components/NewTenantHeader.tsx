@@ -13,6 +13,11 @@ const NewTenantHeader: React.FC<NewTenantHeaderProps> = ({ isCompleted }) => {
     navigate(-1);
   };
 
+  const progressBarStyle = isCompleted ? "bg-gray-800" : "bg-gray-300";
+  const progressCircleStyle = isCompleted
+    ? " border-gray-800"
+    : "border-gray-300";
+
   return (
     <div className="sticky top-0 z-50">
       <nav className="border-gray-200 bg-white px-2 py-2.5 sm:px-4">
@@ -27,32 +32,22 @@ const NewTenantHeader: React.FC<NewTenantHeaderProps> = ({ isCompleted }) => {
             <div className="flex relative">
               <div className="flex w-full items-center my-auto h-full justify-end">
                 <div className="flex items-center">
-                  <div className="w-6 h-6 rounded-full flex justify-center border-2 border-gray-800 box-content">
-                    <div className="w-2 h-2 rounded-full bg-gray-800 mt-2" />
+                  <div className="w-6 h-6 rounded-full flex justify-center items-center border-2 border-gray-800 box-content">
+                    <div className="w-2 h-2 rounded-full bg-gray-800" />
                   </div>
                 </div>
-                {isCompleted ? (
-                  <div className="h-px w-3 bg-gray-800" />
-                ) : (
-                  <div className="h-px w-3 bg-gray-300" />
-                )}
+                <div className={`h-px w-3 ${progressBarStyle}`} />
               </div>
               <div className="flex w-full items-center my-auto h-full justify-start">
-                {isCompleted ? (
-                  <div className="h-px w-3 bg-gray-800" />
-                ) : (
-                  <div className="h-px w-3 bg-gray-300" />
-                )}
+                <div className={`h-px w-3 ${progressBarStyle}`} />
                 <div className="flex items-center">
-                  {isCompleted ? (
-                    <div className="w-6 h-6 rounded-full flex justify-center items-center border-2 border-gray-800 box-content">
-                      <div className="w-2 h-2 rounded-full bg-gray-800"></div>
-                    </div>
-                  ) : (
-                    <div className="w-6 h-6 rounded-full flex justify-center items-center border-2 border-gray-300">
-                      <div className="w-2 h-2 rounded-full bg-gray-300" />
-                    </div>
-                  )}
+                  <div
+                    className={`w-6 h-6 rounded-full flex justify-center items-center border-2 ${progressCircleStyle} box-content`}
+                  >
+                    <div
+                      className={`w-2 h-2 rounded-full ${progressBarStyle}`}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

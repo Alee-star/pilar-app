@@ -2,7 +2,7 @@
   {
     "name": "tower",
     "title": "Select Tower",
-    "subAssets": [
+    "dropDownOptions": [
       {
         "label": "SBL littlelake",
         "value": "tower1"
