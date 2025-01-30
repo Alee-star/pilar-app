@@ -3,7 +3,7 @@ export interface DataItem {
 }
 
 export interface PaginationProps {
-  data: DataItem[];
+  totalCount: number;
   currentPage: number;
   rowsPerPage: number;
   setCurrentPage: (page: number) => void;

@@ -69,13 +69,15 @@ const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
             tenants={currentTenants}
             setTenants={setTenants}
           />
-          <Pagination
-            data={tenants}
-            currentPage={currentPage}
-            rowsPerPage={rowsPerPage}
-            setCurrentPage={setCurrentPage}
-            setRowsPerPage={setRowsPerPage}
-          />
+          {totalTenants > 0 && (
+            <Pagination
+              totalCount={totalTenants}
+              currentPage={currentPage}
+              rowsPerPage={rowsPerPage}
+              setCurrentPage={setCurrentPage}
+              setRowsPerPage={setRowsPerPage}
+            />
+          )}
         </>
       ) : (
         <p className="flex items-center">No data available</p>

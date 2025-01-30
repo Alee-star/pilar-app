@@ -18,5 +18,15 @@ export interface DropDownProps {
   value?: string;
   varient?: DropDownVarient;
   onChange: (value: string) => void;
-  // data?: DropDownOption[];
+}
+
+export enum NavigationDirection {
+  NEXT = "next",
+  PREVIOUS = "previous",
+}
+
+export interface PaginationData {
+  name: string;
+  title: string;
+  dropDownOptions: DropDownOption[];
 }
