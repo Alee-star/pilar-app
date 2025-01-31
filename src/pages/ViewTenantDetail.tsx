@@ -1,14 +1,14 @@
+import { useLocation } from "react-router-dom";
 import UnitDetails from "../components/UnitDetails";
 import TenantDetailsPage from "../components/TenantDetailsPage";
 import OnboardingInfo from "../components/OnboardingInfo";
 import Contract from "../components/Contract";
 import Document from "../components/Document";
-import { useLocation } from "react-router-dom";
 import React from "react";
 
 const ViewTenantDetail: React.FC = () => {
   const location = useLocation();
-  const { tenantId } = location.state || {};
+  const tenantId = location.state?.tenantId || null;
 
   return (
     <>

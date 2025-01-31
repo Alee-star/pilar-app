@@ -1,44 +1,39 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "./Button";
-import DetailTable from "./DetailTable";
+import { User } from "../types/TableTypes";
 
 interface DocumentProps {
   tenantId: string;
 }
 
 const Document: React.FC<DocumentProps> = ({ tenantId }) => {
-  const [data, setData] = useState<{ label: string; value: string }[]>([]);
+  const [tenant, setTenant] = useState<User | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchTenantDetailData = async () => {
       try {
         const response = await fetch("/assets/data.json");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
-        const result = await response.json();
-        const tenant = result.find((tenant: any) => tenant.id === tenantId);
-
-        if (tenant) {
-          const fields = ["Documents"];
-          const mappedData = fields.map((field) => ({
-            label: field,
-            value: tenant[field],
-          }));
-          setData(mappedData);
-        } else {
-          setData([]);
-        }
+        const data: User[] = await response.json();
+        const selectedTenant = data.find((tenant) => tenant.id === tenantId);
+        if (selectedTenant) setTenant(selectedTenant);
       } catch (err: any) {
         setError(err.message || "An unknown error occurred");
       }
     };
-    fetchData();
-  }, [tenantId]);
+
+    fetchTenantDetailData();
+  }, []);
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return <p className="text-red-500">Error: {error}</p>;
+  }
+
+  if (!tenant) {
+    return <p className="text-gray-500">Loading...</p>;
   }
 
   return (
@@ -51,7 +46,20 @@ const Document: React.FC<DocumentProps> = ({ tenantId }) => {
           <Button label="Edit" />
         </div>
       </section>
-      <DetailTable data={data} />
+      <div className="rounded-lg border overflow-hidden mt-7">
+        <table className="w-full text-sm text-left text-gray-500">
+          <tbody className="divide-y">
+            <tr className="bg-white text-gray-900 font-medium flex justify-start">
+              <td className="text-sm p-5 leading-5 border-r w-2/5 bg-gray-50 flex items-center gap-2">
+                Documents
+              </td>
+              <td className="p-5 text-sm leading-6">
+                {tenant.documents?.name || ""}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <div className="h-px bg-gray-200 w-full my-8" />
     </>
   );

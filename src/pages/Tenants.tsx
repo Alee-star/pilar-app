@@ -37,7 +37,9 @@ const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
   const totalTenants = tenants.length;
   const startIndex = (currentPage - 1) * rowsPerPage;
   const endIndex = Math.min(currentPage * rowsPerPage, totalTenants);
-  const currentTenants = tenants.slice(startIndex, endIndex);
+  const currentTenants = Array.isArray(tenants)
+    ? tenants.slice(startIndex, endIndex)
+    : [];
 
   return (
     <>
