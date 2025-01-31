@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import DropDown from "../components/DropDown";
 import { DropDownOption, DropDownVarient } from "../types/DropDown";
-import Button from "../components/Button";
-import { ButtonVarient } from "../types/ButtonTypes";
 import NewTenantHeader from "../components/NewTenantHeader";
 import DatePicker from "../components/DatePicker";
 import FileUploader from "../components/FileUploader";
+import AddTable from "../components/AddTable";
 
 interface TowerData {
   name: string;
@@ -88,20 +87,13 @@ const AddTenant = () => {
                       borderTopLeftRadius: "0px",
                       borderBottomLeftRadius: "0px",
                     }}
+                    disabled
                   />
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex justify-between items-center my-7">
-            <h5 className="font-semibold text-xl leading-7">Tenant</h5>
-            <Button
-              label="Add Tenant"
-              image="/assets/plus2.svg"
-              imageAlt="plus-bold-icon"
-              varient={ButtonVarient.DISABLED}
-            />
-          </div>
+          <AddTable />
         </div>
         <div>
           <div className="py-3">
@@ -182,7 +174,7 @@ const AddTenant = () => {
               requirement="Requirement : Pdf (max. 5mb)"
               buttonLabel="Monthly rent *"
               helperText="This field is mandatory"
-              acceptedFormats=".pdf"
+              acceptedFormats=".pdf, .png, .jpeg"
             />
             <div className="pt-8">
               <h5 className="font-semibold text-xl leading-7">

@@ -18,12 +18,16 @@ const FileUploader: React.FC<FileUploaderProps> = ({
   const handleDocChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      const fileReader = new FileReader();
-      fileReader.onloadend = () => {
-        setDocument(fileReader.result as string);
-      };
-      fileReader.readAsDataURL(file);
+      const objectURL = URL.createObjectURL(file);
+      setDocument(objectURL);
     }
+  };
+
+  const handleDelete = () => {
+    if (document) {
+      URL.revokeObjectURL(document);
+    }
+    setDocument(null);
   };
 
   return (
@@ -40,13 +44,45 @@ const FileUploader: React.FC<FileUploaderProps> = ({
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
         />
         <div className="flex flex-nowrap text-left rounded-lg z-50">
-          <div className="max-w-max flex items-center text-white font-medium text-sm leading-5 px-4 py-2.5 rounded-l-lg border border-r-0 border-gray-300 bg-gray-800 cursor-pointer">
-            Choose file
-          </div>
-          <div className="bg-white flex-1 text-gray-900 p-3 text-sm leading-4 rounded-r-lg border border-l-0 border-gray-300">
-            {document ? "File uploaded" : " Click to upload more"}
-          </div>
+          {document ? (
+            <>
+              <div className="max-w-max flex items-center text-white font-medium text-sm leading-5 px-4 py-2.5 rounded-l-lg border border-r-0 border-green-500 bg-green-400">
+                Choose file
+              </div>
+              <div className="bg-white flex-1 text-gray-900 p-3 text-sm leading-4 rounded-r-lg border border-l-0 border-green-500 bg-green-50 text-green-700">
+                Click to upload more
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="max-w-max flex items-center text-white font-medium text-sm leading-5 px-4 py-2.5 rounded-l-lg border border-r-0 border-gray-300 bg-gray-800 cursor-pointer">
+                Choose file
+              </div>
+              <div className="bg-white flex-1 text-gray-900 p-3 text-sm leading-4 rounded-r-lg border border-l-0 border-gray-300">
+                {document ? "File uploaded" : " Click to upload more"}
+              </div>
+            </>
+          )}
         </div>
+        {document && (
+          <div className="mt-3 flex gap-3 w-full flex-wrap">
+            <div className="flex gap-4 py-5 w-full">
+              <div className="relative h-20 w-24 bg-white">
+                <div className="w-full">
+                  <div className="border rounded-lg w-full overflow-hidden">
+                    <img src={document} className="h-24 w-26" />
+                  </div>
+                </div>
+                <div
+                  className="flex justify-center items-center bg-gray-400 w-6 h-6 absolute -right-2 -top-2 rounded-full z-10"
+                  onClick={handleDelete}
+                >
+                  <img src="src/assets/delete.svg" alt="delete-icon" />
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       <span className="text-xs leading-5 text-gray-500">{requirement}</span>
     </div>

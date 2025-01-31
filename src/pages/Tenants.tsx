@@ -67,7 +67,7 @@ const Tenants: React.FC<TenantsProps> = ({ selectedView }) => {
               <DatePicker placeholder="mm/dd/yyyy" onChange={() => {}} />
               <ApartmentSelector label="Apartment" onChange={() => {}} />
             </div>
-            <div className="my-1 h-px bg-gray-200"></div>
+            <div className="my-1 h-px bg-gray-200" />
           </div>
           <TenantTable
             headers={headers}
