@@ -6,6 +6,11 @@ interface UnitDetailsProps {
 }
 
 const UnitDetails: React.FC<UnitDetailsProps> = ({ tenant }) => {
+  const rowClass = "bg-white text-gray-900 font-medium flex justify-start";
+  const cellClass =
+    "text-sm p-5 leading-5 border-r w-2/5 bg-gray-50 flex items-center gap-2";
+  const valueClass = "p-5 text-sm leading-6";
+
   return (
     <>
       <section>
@@ -17,27 +22,17 @@ const UnitDetails: React.FC<UnitDetailsProps> = ({ tenant }) => {
       <div className="rounded-lg border overflow-hidden mt-7">
         <table className="w-full text-sm text-left text-gray-500">
           <tbody className="divide-y">
-            <tr className="bg-white text-gray-900 font-medium flex justify-start">
-              <td className="text-sm p-5 leading-5 border-r w-2/5 bg-gray-50 flex items-center gap-2">
-                Unit Type
-              </td>
-              <td className="p-5 text-sm leading-6">
-                {tenant?.apartment?.type}
-              </td>
+            <tr className={rowClass}>
+              <td className={cellClass}>Unit Type</td>
+              <td className={valueClass}>{tenant?.apartment?.type}</td>
             </tr>
-            <tr className="bg-white text-gray-900 font-medium flex justify-start">
-              <td className="text-sm p-5 leading-5 border-r w-2/5 bg-gray-50 flex items-center gap-2">
-                Sub Asset
-              </td>
-              <td className="p-5 text-sm leading-6">
-                {tenant?.apartment?.tower?.name}
-              </td>
+            <tr className={rowClass}>
+              <td className={cellClass}>Sub Asset</td>
+              <td className={valueClass}>{tenant?.apartment?.tower?.name}</td>
             </tr>
-            <tr className="bg-white text-gray-900 font-medium flex justify-start">
-              <td className="text-sm p-5 leading-5 border-r w-2/5 bg-gray-50 flex items-center gap-2">
-                Apartment Unit
-              </td>
-              <td className="p-5 text-sm leading-6">
+            <tr className={rowClass}>
+              <td className={cellClass}>Apartment Unit</td>
+              <td className={valueClass}>
                 {tenant?.apartment?.name?.en}-{tenant?.apartment?.tower?.name}
               </td>
             </tr>

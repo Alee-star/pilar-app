@@ -6,6 +6,11 @@ interface OnboardingProps {
 }
 
 const OnboardingInfo: React.FC<OnboardingProps> = ({ tenant }) => {
+  const rowClass = "bg-white text-gray-900 font-medium flex justify-start";
+  const cellClass =
+    "text-sm p-5 leading-5 border-r w-2/5 bg-gray-50 flex items-center gap-2";
+  const valueClass = "p-5 text-sm leading-6";
+
   return (
     <>
       <section>
@@ -19,19 +24,13 @@ const OnboardingInfo: React.FC<OnboardingProps> = ({ tenant }) => {
       <div className="rounded-lg border overflow-hidden mt-7">
         <table className="w-full text-sm text-left text-gray-500">
           <tbody className="divide-y">
-            <tr className="bg-white text-gray-900 font-medium flex justify-start">
-              <td className="text-sm p-5 leading-5 border-r w-2/5 bg-gray-50 flex items-center gap-2">
-                Move in date
-              </td>
-              <td className="p-5 text-sm leading-6">
-                {tenant?.status?.move_in_date}
-              </td>
+            <tr className={rowClass}>
+              <td className={cellClass}>Move in date</td>
+              <td className={valueClass}>{tenant?.status?.move_in_date}</td>
             </tr>
-            <tr className="bg-white text-gray-900 font-medium flex justify-start">
-              <td className="text-sm p-5 leading-5 border-r w-2/5 bg-gray-50 flex items-center gap-2">
-                Elevator Slots
-              </td>
-              <td className="p-5 text-sm leading-6">
+            <tr className={rowClass}>
+              <td className={cellClass}>Elevator Slots</td>
+              <td className={valueClass}>
                 {tenant?.apartment?.elevator_slots}
               </td>
             </tr>
