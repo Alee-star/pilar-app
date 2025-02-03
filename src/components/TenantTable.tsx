@@ -104,7 +104,6 @@ const TenantTable: React.FC<TenantTableProps> = ({
                     <Button
                       label="View Detail"
                       onClick={() => handleTenantDetailClick(tenant.id)}
-                      buttonId={tenant.id}
                     />
                     <Button
                       label={

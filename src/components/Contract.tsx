@@ -1,41 +1,11 @@
-import { useEffect, useState } from "react";
 import Button from "./Button";
 import { User } from "../types/TableTypes";
 
 interface ContractProps {
-  tenantId: string;
+  tenant: User;
 }
 
-const Contract: React.FC<ContractProps> = ({ tenantId }) => {
-  const [tenant, setTenant] = useState<User | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchTenantDetailData = async () => {
-      try {
-        const response = await fetch("/assets/data.json");
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const data: User[] = await response.json();
-        const selectedTenant = data.find((tenant) => tenant.id === tenantId);
-        if (selectedTenant) setTenant(selectedTenant);
-      } catch (err: any) {
-        setError(err.message || "An unknown error occurred");
-      }
-    };
-
-    fetchTenantDetailData();
-  }, []);
-
-  if (error) {
-    return <p className="text-red-500">Error: {error}</p>;
-  }
-
-  if (!tenant) {
-    return <p className="text-gray-500">Loading...</p>;
-  }
-
+const Contract: React.FC<ContractProps> = ({ tenant }) => {
   return (
     <>
       <section>
@@ -54,7 +24,7 @@ const Contract: React.FC<ContractProps> = ({ tenantId }) => {
               <td className="p-5 text-sm leading-6">
                 <div className="flex flex-col text-blue-700 font-bold">
                   <a href="#" className="hover:text-blue-400">
-                    {tenant.apartment?.rental_contract || ""}
+                    {tenant?.apartment?.rental_contract}
                   </a>
                 </div>
               </td>
@@ -64,7 +34,7 @@ const Contract: React.FC<ContractProps> = ({ tenantId }) => {
                 Monthly rent
               </td>
               <td className="p-5 text-sm leading-6">
-                {tenant.apartment?.rent}
+                {tenant?.apartment?.rent}
               </td>
             </tr>
           </tbody>

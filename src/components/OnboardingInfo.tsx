@@ -1,41 +1,11 @@
-import { useEffect, useState } from "react";
 import Button from "./Button";
 import { User } from "../types/TableTypes";
 
 interface OnboardingProps {
-  tenantId: string;
+  tenant: User;
 }
 
-const OnboardingInfo: React.FC<OnboardingProps> = ({ tenantId }) => {
-  const [tenant, setTenant] = useState<User | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchTenantDetailData = async () => {
-      try {
-        const response = await fetch("/assets/data.json");
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const data: User[] = await response.json();
-        const selectedTenant = data.find((tenant) => tenant.id === tenantId);
-        if (selectedTenant) setTenant(selectedTenant);
-      } catch (err: any) {
-        setError(err.message || "An unknown error occurred");
-      }
-    };
-
-    fetchTenantDetailData();
-  }, []);
-
-  if (error) {
-    return <p className="text-red-500">Error: {error}</p>;
-  }
-
-  if (!tenant) {
-    return <p className="text-gray-500">Loading...</p>;
-  }
-
+const OnboardingInfo: React.FC<OnboardingProps> = ({ tenant }) => {
   return (
     <>
       <section>
@@ -54,7 +24,7 @@ const OnboardingInfo: React.FC<OnboardingProps> = ({ tenantId }) => {
                 Move in date
               </td>
               <td className="p-5 text-sm leading-6">
-                {tenant.status?.move_in_date || ""}
+                {tenant?.status?.move_in_date}
               </td>
             </tr>
             <tr className="bg-white text-gray-900 font-medium flex justify-start">
@@ -62,7 +32,7 @@ const OnboardingInfo: React.FC<OnboardingProps> = ({ tenantId }) => {
                 Elevator Slots
               </td>
               <td className="p-5 text-sm leading-6">
-                {tenant.apartment?.elevator_slots || ""}
+                {tenant?.apartment?.elevator_slots}
               </td>
             </tr>
           </tbody>

@@ -1,41 +1,11 @@
-import { useEffect, useState } from "react";
 import Button from "./Button";
 import { User } from "../types/TableTypes";
 
 interface DocumentProps {
-  tenantId: string;
+  tenant: User;
 }
 
-const Document: React.FC<DocumentProps> = ({ tenantId }) => {
-  const [tenant, setTenant] = useState<User | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchTenantDetailData = async () => {
-      try {
-        const response = await fetch("/assets/data.json");
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const data: User[] = await response.json();
-        const selectedTenant = data.find((tenant) => tenant.id === tenantId);
-        if (selectedTenant) setTenant(selectedTenant);
-      } catch (err: any) {
-        setError(err.message || "An unknown error occurred");
-      }
-    };
-
-    fetchTenantDetailData();
-  }, []);
-
-  if (error) {
-    return <p className="text-red-500">Error: {error}</p>;
-  }
-
-  if (!tenant) {
-    return <p className="text-gray-500">Loading...</p>;
-  }
-
+const Document: React.FC<DocumentProps> = ({ tenant }) => {
   return (
     <>
       <section>
@@ -54,7 +24,7 @@ const Document: React.FC<DocumentProps> = ({ tenantId }) => {
                 Documents
               </td>
               <td className="p-5 text-sm leading-6">
-                {tenant.documents?.name || ""}
+                {tenant?.documents?.name}
               </td>
             </tr>
           </tbody>

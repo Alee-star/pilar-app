@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Tenants from "./pages/Tenants";
 import Layout from "./pages/Layout";
-import ViewTenantDetail from "./pages/ViewTenantDetail";
+import TenantDetails from "./pages/TenantDetails";
 import "./index.css";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
             path="/tenants"
             element={<Tenants selectedView={selectedView} />}
           />
-          <Route path="/tenantDetails" element={<ViewTenantDetail />} />
+          <Route path="/tenantDetails" element={<TenantDetails />} />
         </Route>
       </Routes>
     </Router>

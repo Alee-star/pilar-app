@@ -22,7 +22,6 @@ const Button: React.FC<ButtonProps> = ({
   varient = ButtonVarient.PRIMARY,
   isDisabled,
   image,
-  buttonId,
   imageAlt,
 }) => {
   const buttonClass = `flex h-min items-center justify-center p-0.5 text-center font-medium rounded-lg ${getButtonClasses(
@@ -35,12 +34,7 @@ const Button: React.FC<ButtonProps> = ({
     : "text-xs sm:text-sm";
 
   return (
-    <button
-      className={buttonClass}
-      onClick={onClick}
-      disabled={isDisabled}
-      id={buttonId}
-    >
+    <button className={buttonClass} onClick={onClick} disabled={isDisabled}>
       <span className={`flex items-center rounded-md text-sm ${buttonText}`}>
         {image && <img src={image} alt={imageAlt} />}
         <span className={buttonTextClass}>{label}</span>
