@@ -11,6 +11,8 @@ const getButtonClasses = (varient: ButtonVarient): string => {
       return "bg-white opacity-50 cursor-not-allowed border border-gray-900";
     case ButtonVarient.ENABLED:
       return "text-gray-900 border border-gray-900";
+    case ButtonVarient.THIRD:
+      return "opacity-50 text-white bg-gray-800 border border-transaparent";
     default:
       return "text-gray-900 border border-gray-300 hover:bg-gray-100";
   }

@@ -2,7 +2,7 @@
   {
     "name": "tower",
     "title": "Select Tower",
-    "subAssets": [
+    "dropDownOptions": [
       {
         "label": "Sub-asset-1",
         "value": "tower1"

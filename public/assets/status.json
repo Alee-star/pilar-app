@@ -1,0 +1,16 @@
+[
+  {
+    "name": "status",
+    "title": "status",
+    "dropDownOptions": [
+      {
+        "label": "Not Moved In",
+        "value": "not moved"
+      },
+      {
+        "label": "Moved In",
+        "value": "moved"
+      }
+    ]
+  }
+]
