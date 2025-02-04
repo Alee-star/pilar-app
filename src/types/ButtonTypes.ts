@@ -5,6 +5,7 @@ export enum ButtonVarient {
   SECONDARY = "secondary",
   DISABLED = "disabled",
   ENABLED = "enabled",
+  THIRD = "third",
 }
 
 export interface ButtonProps {
