@@ -6,10 +6,10 @@ interface OnboardingProps {
 }
 
 const OnboardingInfo: React.FC<OnboardingProps> = ({ tenant }) => {
-  const rowClass = "bg-white text-gray-900 font-medium flex justify-start";
-  const cellClass =
+  const tableRowStyle = "bg-white text-gray-900 font-medium flex justify-start";
+  const tablecellStyle =
     "text-sm p-5 leading-5 border-r w-2/5 bg-gray-50 flex items-center gap-2";
-  const valueClass = "p-5 text-sm leading-6";
+  const tableValueStyle = "p-5 text-sm leading-6";
 
   return (
     <>
@@ -24,13 +24,15 @@ const OnboardingInfo: React.FC<OnboardingProps> = ({ tenant }) => {
       <div className="rounded-lg border overflow-hidden mt-7">
         <table className="w-full text-sm text-left text-gray-500">
           <tbody className="divide-y">
-            <tr className={rowClass}>
-              <td className={cellClass}>Move in date</td>
-              <td className={valueClass}>{tenant?.status?.move_in_date}</td>
+            <tr className={tableRowStyle}>
+              <td className={tablecellStyle}>Move in date</td>
+              <td className={tableValueStyle}>
+                {tenant?.status?.move_in_date}
+              </td>
             </tr>
-            <tr className={rowClass}>
-              <td className={cellClass}>Elevator Slots</td>
-              <td className={valueClass}>
+            <tr className={tableRowStyle}>
+              <td className={tablecellStyle}>Elevator Slots</td>
+              <td className={tableValueStyle}>
                 {tenant?.apartment?.elevator_slots}
               </td>
             </tr>

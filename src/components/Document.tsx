@@ -6,10 +6,10 @@ interface DocumentProps {
 }
 
 const Document: React.FC<DocumentProps> = ({ tenant }) => {
-  const rowClass = "bg-white text-gray-900 font-medium flex justify-start";
-  const cellClass =
+  const tableRowStyle = "bg-white text-gray-900 font-medium flex justify-start";
+  const tablecellStyle =
     "text-sm p-5 leading-5 border-r w-2/5 bg-gray-50 flex items-center gap-2";
-  const valueClass = "p-5 text-sm leading-6";
+  const tableValueStyle = "p-5 text-sm leading-6";
 
   return (
     <>
@@ -24,9 +24,9 @@ const Document: React.FC<DocumentProps> = ({ tenant }) => {
       <div className="rounded-lg border overflow-hidden mt-7">
         <table className="w-full text-sm text-left text-gray-500">
           <tbody className="divide-y">
-            <tr className={rowClass}>
-              <td className={cellClass}>Documents</td>
-              <td className={valueClass}>{tenant?.documents?.name}</td>
+            <tr className={tableRowStyle}>
+              <td className={tablecellStyle}>Documents</td>
+              <td className={tableValueStyle}>{tenant?.documents?.name}</td>
             </tr>
           </tbody>
         </table>

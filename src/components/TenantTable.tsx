@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TenantTableProps } from "../types/TableTypes";
+import { TenantTableProps, MoveInStatus } from "../types/TableTypes";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import ArchiveModal from "./model/Archive";
@@ -74,7 +74,7 @@ const TenantTable: React.FC<TenantTableProps> = ({
               <tr key={tenant.id} className="bg-white">
                 {hasIcon && (
                   <td className="px-8 py-4">
-                    {tenant.status.is_move === "Moved In" ? (
+                    {tenant?.status?.is_move === MoveInStatus.MOVEDIN ? (
                       <img src="assets/tick.svg" alt="tick" />
                     ) : (
                       <img src="assets/pending.svg" alt="pending" />
@@ -82,22 +82,22 @@ const TenantTable: React.FC<TenantTableProps> = ({
                   </td>
                 )}
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {`${tenant.user.first_name} ${tenant.user.last_name}`}
+                  {`${tenant?.user?.first_name} ${tenant?.user?.last_name}`}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {tenant.apartment.name.en}
+                  {tenant?.apartment?.name?.en}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {tenant.apartment.tower.name}
+                  {tenant?.apartment?.tower?.name}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {tenant.apartment.rent}
+                  {tenant?.apartment?.rent}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {tenant.status.move_in_date || ""}
+                  {tenant?.status?.move_in_date}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {tenant.status.last_sign_date || ""}
+                  {tenant?.status?.last_sign_date}
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex gap-x-4 items-center justify-between">
@@ -107,7 +107,7 @@ const TenantTable: React.FC<TenantTableProps> = ({
                     />
                     <Button
                       label={
-                        tenant.status.last_sign_date
+                        tenant?.status?.last_sign_date
                           ? "Reset Password"
                           : "Re-invite"
                       }

@@ -6,10 +6,10 @@ interface ContractProps {
 }
 
 const Contract: React.FC<ContractProps> = ({ tenant }) => {
-  const rowClass = "bg-white text-gray-900 font-medium flex justify-start";
-  const cellClass =
+  const tableRowStyle = "bg-white text-gray-900 font-medium flex justify-start";
+  const tablecellStyle =
     "text-sm p-5 leading-5 border-r w-2/5 bg-gray-50 flex items-center gap-2";
-  const valueClass = "p-5 text-sm leading-6";
+  const tableValueStyle = "p-5 text-sm leading-6";
 
   return (
     <>
@@ -22,9 +22,9 @@ const Contract: React.FC<ContractProps> = ({ tenant }) => {
       <div className="rounded-lg border overflow-hidden mt-7">
         <table className="w-full text-sm text-left text-gray-500">
           <tbody className="divide-y">
-            <tr className={rowClass}>
-              <td className={cellClass}>Rental Contract</td>
-              <td className={valueClass}>
+            <tr className={tableRowStyle}>
+              <td className={tablecellStyle}>Rental Contract</td>
+              <td className={tableValueStyle}>
                 <div className="flex flex-col text-blue-700 font-bold">
                   <a href="#" className="hover:text-blue-400">
                     {tenant?.apartment?.rental_contract}
@@ -32,9 +32,9 @@ const Contract: React.FC<ContractProps> = ({ tenant }) => {
                 </div>
               </td>
             </tr>
-            <tr className={rowClass}>
-              <td className={cellClass}>Monthly rent</td>
-              <td className={valueClass}>{tenant?.apartment?.rent}</td>
+            <tr className={tableRowStyle}>
+              <td className={tablecellStyle}>Monthly rent</td>
+              <td className={tableValueStyle}>{tenant?.apartment?.rent}</td>
             </tr>
           </tbody>
         </table>

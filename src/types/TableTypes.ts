@@ -37,3 +37,8 @@ export interface TenantTableProps {
   tenants: User[];
   setTenants: React.Dispatch<React.SetStateAction<User[]>>;
 }
+
+export enum MoveInStatus {
+  MOVEDIN = "Moved In",
+  PENDING = "Not Moved In",
+}
