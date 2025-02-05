@@ -1,7 +1,18 @@
 import Button from "./Button";
 import { ButtonVarient } from "../types/ButtonTypes";
 
-const AddTable = () => {
+interface Tenant {
+  id: number;
+  name: string;
+  gender: string;
+  dob: string;
+  email: string;
+  mob: string;
+}
+
+const AddTenantTable = () => {
+  const tenantData: Tenant[] = [];
+
   return (
     <>
       <div className="flex justify-between items-center my-7">
@@ -26,11 +37,23 @@ const AddTable = () => {
             </tr>
           </thead>
           <tbody className="divide-y">
-            <tr className="odd:bg-white even:bg-gray-50 bg-white">
-              <td className="px-6 py-4 text-center" colSpan={6}>
-                No data
-              </td>
-            </tr>
+            {tenantData.length === 0 ? (
+              <tr className="odd:bg-white even:bg-gray-50 bg-white">
+                <td className="px-6 py-4 text-center" colSpan={6}>
+                  No data
+                </td>
+              </tr>
+            ) : (
+              tenantData.map((tenant) => (
+                <tr key={tenant.id} className="odd:bg-white even:bg-gray-50">
+                  <td className="px-6 py-4">{tenant.name}</td>
+                  <td className="px-6 py-4">{tenant.gender}</td>
+                  <td className="px-6 py-4">{tenant.dob}</td>
+                  <td className="px-6 py-4">{tenant.email}</td>
+                  <td className="px-6 py-4">{tenant.mob}</td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
@@ -39,4 +62,4 @@ const AddTable = () => {
   );
 };
 
-export default AddTable;
+export default AddTenantTable;

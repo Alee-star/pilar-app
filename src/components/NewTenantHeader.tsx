@@ -1,7 +1,7 @@
 import BackIcon from "../assets/back.svg?react";
 import { useNavigate } from "react-router-dom";
 
-const NewTenantHeader = () => {
+const AddTenantHeader = () => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -14,8 +14,8 @@ const NewTenantHeader = () => {
         <div className="mx-auto flex flex-wrap items-center justify-between">
           <div className="flex-1 flex justify-between gap-5 py-5 px-52 items-center whitespace-nowrap">
             <div className="flex gap-5 items-center text-xl font-semibold">
-              <button type="button">
-                <BackIcon onClick={handleBackClick} />
+              <button type="button" onClick={handleBackClick}>
+                <BackIcon />
               </button>
               <span>Add new tenant</span>
             </div>
@@ -44,4 +44,4 @@ const NewTenantHeader = () => {
   );
 };
 
-export default NewTenantHeader;
+export default AddTenantHeader;

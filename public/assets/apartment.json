@@ -1,0 +1,20 @@
+[
+  {
+    "name": "apartment",
+    "title": "Select Apartment",
+    "dropDownOptions": [
+      {
+        "label": "Apartment1",
+        "value": "apartment1"
+      },
+      {
+        "label": "Apartment test",
+        "value": "apartment2"
+      },
+      {
+        "label": "dummy Apartment",
+        "value": "apartment3"
+      }
+    ]
+  }
+]

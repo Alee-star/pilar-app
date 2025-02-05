@@ -6,6 +6,7 @@ export enum DropDownVarient {
 export interface DropDownOption {
   label: string;
   value: string;
+  slots?: string[];
 }
 
 export interface TowerData {
@@ -26,6 +27,18 @@ export enum NavigationDirection {
 }
 
 export interface PaginationData {
+  name: string;
+  title: string;
+  dropDownOptions: DropDownOption[];
+}
+
+export interface ApartmentData {
+  name: string;
+  title: string;
+  dropDownOptions: DropDownOption[];
+}
+
+export interface ElevatorData {
   name: string;
   title: string;
   dropDownOptions: DropDownOption[];

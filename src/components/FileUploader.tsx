@@ -3,6 +3,7 @@ import React, { useState } from "react";
 interface FileUploaderProps {
   buttonLabel?: string;
   acceptedFormats?: string;
+  maxFileSize?: number;
   helperText?: string;
   requirement: string;
 }
@@ -11,15 +12,25 @@ const FileUploader: React.FC<FileUploaderProps> = ({
   buttonLabel,
   acceptedFormats,
   requirement,
+  maxFileSize = 5 * 1024 * 1024,
   helperText,
 }) => {
   const [document, setDocument] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleDocChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
+
     if (file) {
-      const objectURL = URL.createObjectURL(file);
-      setDocument(objectURL);
+      if (file.size > maxFileSize) {
+        setError(
+          `File size exceeds the limit of ${maxFileSize / 1024 / 1024}MB`
+        );
+      } else {
+        setError(null);
+        const objectURL = URL.createObjectURL(file);
+        setDocument(objectURL);
+      }
     }
   };
 
@@ -59,11 +70,12 @@ const FileUploader: React.FC<FileUploaderProps> = ({
                 Choose file
               </div>
               <div className="bg-white flex-1 text-gray-900 p-3 text-sm leading-4 rounded-r-lg border border-l-0 border-gray-300">
-                {document ? "File uploaded" : " Click to upload more"}
+                Click to upload more
               </div>
             </>
           )}
         </div>
+        {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
         {document && (
           <div className="mt-3 flex gap-3 w-full flex-wrap">
             <div className="flex gap-4 py-5 w-full">
