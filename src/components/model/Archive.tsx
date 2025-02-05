@@ -24,7 +24,7 @@ const ArchiveModal: React.FC<ArchiveModalProps> = ({
               Archive Tenant
             </h3>
             <div
-              className="ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400"
+              className="ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 cursor-pointer"
               onClick={closeModal}
             >
               <CloseIcon className="h-5 w-5" />

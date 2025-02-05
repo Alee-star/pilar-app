@@ -15,4 +15,5 @@ export interface ButtonProps {
   hasSvg?: boolean;
   image?: string;
   imageAlt?: string;
+  buttonId?: string;
 }

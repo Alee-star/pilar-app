@@ -1,5 +1,6 @@
 export interface TenantDetailsProps {
   title: string;
+  tenantId?: string | number;
 }
 
 export interface DetailEntry {

@@ -1,332 +1,79 @@
 [
   {
     "id": "1",
-    "name": "Nivya Mathew",
-    "apartment": "1w",
-    "tower": "Change= ZO Test",
-    "rent": 100,
-    "moveInDate": "",
-    "lastSignedIn": "",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
+    "user": {
+      "first_name": "Nivya",
+      "last_name": "Mathew",
+      "email": "nivya.mathew+inviteemai@vonnue.com",
+      "phone_number": "+918281933492",
+      "gender": "FEMALE",
+      "dob": "2025-01-01"
+    },
+    "apartment": {
+      "type": "Apartment",
+      "name": { "en": "Nenya - apartment" },
+      "tower": { "name": "Nenya" },
+      "rent": "654",
+      "rental_contract": "rental contract",
+      "elevator_slots": ""
+    },
+    "status": {
+      "is_move": "Moved In",
+      "move_in_date": "",
+      "last_sign_date": ""
+    },
+    "documents": {
+      "name": ""
+    }
   },
   {
     "id": "2",
-    "name": "Anan Nasreen",
-    "apartment": "Nenya - apartment",
-    "tower": "Nenya",
-    "rent": 2000,
-    "moveInDate": "",
-    "lastSignedIn": "13/12/2024 - 01:43",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
+    "user": {
+      "first_name": "Anan",
+      "last_name": "Nasreen",
+      "email": "anan.nasreen+propertymanager@vonnue.com",
+      "phone_number": "+918590898891",
+      "gender": "FEMALE",
+      "dob": "2001-07-18"
+    },
+    "apartment": {
+      "type": "Apartment",
+      "name": { "en": "Nenya - apartment" },
+      "tower": { "name": "Nenya" },
+      "rent": "2000",
+      "rental_contract": "rental contract ",
+      "elevator_slots": ""
+    },
+    "status": {
+      "is_move": "Moved In",
+      "move_in_date": "",
+      "last_sign_date": "13/12/2024 - 01:43"
+    },
+    "documents": { "name": "" }
   },
   {
     "id": "3",
-    "name": "Abraham SBL",
-    "apartment": "AB1",
-    "tower": "SBL littlelake",
-    "rent": 654,
-    "moveInDate": "",
-    "lastSignedIn": "04/01/2025 - 11:35",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": false
-  },
-  {
-    "id": "4",
-    "name": "Nivya Mathew",
-    "apartment": "1w",
-    "tower": "Change= ZO Test",
-    "rent": 100,
-    "moveInDate": "",
-    "lastSignedIn": "",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "5",
-    "name": "Anan Nasreen",
-    "apartment": "Nenya - apartment",
-    "tower": "Nenya",
-    "rent": 2000,
-    "moveInDate": "",
-    "lastSignedIn": "13/12/2024 - 01:43",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "6",
-    "name": "Abraham SBL",
-    "apartment": "AB1",
-    "tower": "SBL littlelake",
-    "rent": 654,
-    "moveInDate": "",
-    "lastSignedIn": "04/01/2025 - 11:35",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": false
-  },
-  {
-    "id": "7",
-    "name": "Nivya Mathew",
-    "apartment": "1w",
-    "tower": "Change= ZO Test",
-    "rent": 100,
-    "moveInDate": "",
-    "lastSignedIn": "",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "8",
-    "name": "Anan Nasreen",
-    "apartment": "Nenya - apartment",
-    "tower": "Nenya",
-    "rent": 2000,
-    "moveInDate": "",
-    "lastSignedIn": "13/12/2024 - 01:43",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "9",
-    "name": "Abraham SBL",
-    "apartment": "AB1",
-    "tower": "SBL littlelake",
-    "rent": 654,
-    "moveInDate": "",
-    "lastSignedIn": "04/01/2025 - 11:35",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": false
-  },
-  {
-    "id": "10",
-    "name": "Nivya Mathew",
-    "apartment": "1w",
-    "tower": "Change= ZO Test",
-    "rent": 100,
-    "moveInDate": "",
-    "lastSignedIn": "",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "11",
-    "name": "Anan Nasreen",
-    "apartment": "Nenya - apartment",
-    "tower": "Nenya",
-    "rent": 2000,
-    "moveInDate": "",
-    "lastSignedIn": "13/12/2024 - 01:43",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "12",
-    "name": "Abraham SBL",
-    "apartment": "AB1",
-    "tower": "SBL littlelake",
-    "rent": 654,
-    "moveInDate": "",
-    "lastSignedIn": "04/01/2025 - 11:35",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": false
-  },
-  {
-    "id": "13",
-    "name": "Nivya Mathew",
-    "apartment": "1w",
-    "tower": "Change= ZO Test",
-    "rent": 100,
-    "moveInDate": "",
-    "lastSignedIn": "",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "14",
-    "name": "Anan Nasreen",
-    "apartment": "Nenya - apartment",
-    "tower": "Nenya",
-    "rent": 2000,
-    "moveInDate": "",
-    "lastSignedIn": "13/12/2024 - 01:43",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "15",
-    "name": "Abraham SBL",
-    "apartment": "AB1",
-    "tower": "SBL littlelake",
-    "rent": 654,
-    "moveInDate": "",
-    "lastSignedIn": "04/01/2025 - 11:35",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": false
-  },
-  {
-    "id": "16",
-    "name": "Nivya Mathew",
-    "apartment": "1w",
-    "tower": "Change= ZO Test",
-    "rent": 100,
-    "moveInDate": "",
-    "lastSignedIn": "",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "17",
-    "name": "Anan Nasreen",
-    "apartment": "Nenya - apartment",
-    "tower": "Nenya",
-    "rent": 2000,
-    "moveInDate": "",
-    "lastSignedIn": "13/12/2024 - 01:43",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "18",
-    "name": "Abraham SBL",
-    "apartment": "AB1",
-    "tower": "SBL littlelake",
-    "rent": 654,
-    "moveInDate": "",
-    "lastSignedIn": "04/01/2025 - 11:35",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": false
-  },
-  {
-    "id": "19",
-    "name": "Nivya Mathew",
-    "apartment": "1w",
-    "tower": "Change= ZO Test",
-    "rent": 100,
-    "moveInDate": "",
-    "lastSignedIn": "",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "20",
-    "name": "Anan Nasreen",
-    "apartment": "Nenya - apartment",
-    "tower": "Nenya",
-    "rent": 2000,
-    "moveInDate": "",
-    "lastSignedIn": "13/12/2024 - 01:43",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "21",
-    "name": "Abraham SBL",
-    "apartment": "AB1",
-    "tower": "SBL littlelake",
-    "rent": 654,
-    "moveInDate": "",
-    "lastSignedIn": "04/01/2025 - 11:35",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": false
-  },
-  {
-    "id": "22",
-    "name": "Nivya Mathew",
-    "apartment": "1w",
-    "tower": "Change= ZO Test",
-    "rent": 100,
-    "moveInDate": "",
-    "lastSignedIn": "",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "23",
-    "name": "Anan Nasreen",
-    "apartment": "Nenya - apartment",
-    "tower": "Nenya",
-    "rent": 2000,
-    "moveInDate": "",
-    "lastSignedIn": "13/12/2024 - 01:43",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "24",
-    "name": "Abraham SBL",
-    "apartment": "AB1",
-    "tower": "SBL littlelake",
-    "rent": 654,
-    "moveInDate": "",
-    "lastSignedIn": "04/01/2025 - 11:35",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": false
-  },
-  {
-    "id": "25",
-    "name": "Nivya Mathew",
-    "apartment": "1w",
-    "tower": "Change= ZO Test",
-    "rent": 100,
-    "moveInDate": "",
-    "lastSignedIn": "",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "26",
-    "name": "Anan Nasreen",
-    "apartment": "Nenya - apartment",
-    "tower": "Nenya",
-    "rent": 2000,
-    "moveInDate": "",
-    "lastSignedIn": "13/12/2024 - 01:43",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "27",
-    "name": "Abraham SBL",
-    "apartment": "AB1",
-    "tower": "SBL littlelake",
-    "rent": 654,
-    "moveInDate": "",
-    "lastSignedIn": "04/01/2025 - 11:35",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": false
-  },
-  {
-    "id": "28",
-    "name": "Nivya Mathew",
-    "apartment": "1w",
-    "tower": "Change= ZO Test",
-    "rent": 100,
-    "moveInDate": "",
-    "lastSignedIn": "",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "29",
-    "name": "Anan Nasreen",
-    "apartment": "Nenya - apartment",
-    "tower": "Nenya",
-    "rent": 2000,
-    "moveInDate": "",
-    "lastSignedIn": "13/12/2024 - 01:43",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": true
-  },
-  {
-    "id": "30",
-    "name": "Abraham SBL",
-    "apartment": "AB1",
-    "tower": "SBL littlelake",
-    "rent": 654,
-    "moveInDate": "",
-    "lastSignedIn": "04/01/2025 - 11:35",
-    "actions": ["View Detail", "Re-invite", "Archive"],
-    "hasMovedIn": false
+    "user": {
+      "first_name": "Abraham",
+      "last_name": "SBL",
+      "email": "abraham.geogrge+sbldev@vonnue.com",
+      "phone_number": "+918281933492",
+      "gender": "MALE",
+      "dob": "2024-11-01"
+    },
+    "apartment": {
+      "type": "Apartment",
+      "name": { "en": "AB1" },
+      "tower": { "name": "SBL littlelake" },
+      "rent": "654",
+      "rental_contract": "rental contract",
+      "elevator_slots": ""
+    },
+    "status": {
+      "is_move": "Not Moved In",
+      "move_in_date": "",
+      "last_sign_date": "04/01/2025 - 11:35"
+    },
+    "documents": { "name": "" }
   }
 ]

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { TenantTableProps } from "../types/TableTypes";
+import { TenantTableProps, MoveInStatus } from "../types/TableTypes";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 import ArchiveModal from "./model/Archive";
 
 const TenantTable: React.FC<TenantTableProps> = ({
@@ -11,13 +12,24 @@ const TenantTable: React.FC<TenantTableProps> = ({
   setTenants,
 }) => {
   const [selectedTenantId, setSelectedTenantId] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("assets/data.json")
       .then((response) => response.json())
-      .then((data) => setTenants(data))
-      .catch((error) => console.error("error fetching data:", error));
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setTenants(data);
+        } else {
+          setTenants([data]);
+        }
+      })
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
+
+  const handleTenantDetailClick = (tenantId: string) => {
+    navigate("/tenantDetails", { state: { tenantId } });
+  };
 
   const handleArchiveClick = (tenantId: string) => {
     setSelectedTenantId(tenantId);
@@ -46,7 +58,7 @@ const TenantTable: React.FC<TenantTableProps> = ({
               {headers.map((header, index) => (
                 <th
                   key={index}
-                  className={`px-6 py-4 ${
+                  className={`px-6 py-3 ${
                     index === headers.length - 1 && hasButtons
                       ? "text-center"
                       : ""
@@ -61,8 +73,8 @@ const TenantTable: React.FC<TenantTableProps> = ({
             {tenants.map((tenant) => (
               <tr key={tenant.id} className="bg-white">
                 {hasIcon && (
-                  <td className="px-6 py-4">
-                    {tenant.hasMovedIn ? (
+                  <td className="px-8 py-4">
+                    {tenant?.status?.is_move === MoveInStatus.MOVEDIN ? (
                       <img src="assets/tick.svg" alt="tick" />
                     ) : (
                       <img src="assets/pending.svg" alt="pending" />
@@ -70,29 +82,34 @@ const TenantTable: React.FC<TenantTableProps> = ({
                   </td>
                 )}
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {tenant.name}
+                  {`${tenant?.user?.first_name} ${tenant?.user?.last_name}`}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {tenant.apartment}
+                  {tenant?.apartment?.name?.en}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {tenant.tower}
+                  {tenant?.apartment?.tower?.name}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {tenant.rent}
+                  {tenant?.apartment?.rent}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {tenant.moveInDate || ""}
+                  {tenant?.status?.move_in_date}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
-                  {tenant.lastSignedIn || ""}
+                  {tenant?.status?.last_sign_date}
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex gap-x-4 items-center justify-between">
-                    <Button label="View Detail" />
+                    <Button
+                      label="View Detail"
+                      onClick={() => handleTenantDetailClick(tenant.id)}
+                    />
                     <Button
                       label={
-                        tenant.lastSignedIn ? "Reset Password" : "Re-invite"
+                        tenant?.status?.last_sign_date
+                          ? "Reset Password"
+                          : "Re-invite"
                       }
                     />
                     <Button
